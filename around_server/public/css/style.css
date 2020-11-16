@@ -1,0 +1,96 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+/*            .flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}*/
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 55px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin: 10px 0 10px 0;
+}
+#sample {
+    width: 95%;
+    height: 700px;
+    margin: 0 auto;
+}
+.sample p {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0px 0px 10px 0px;
+}
+.sample ul{
+    list-style: none;
+    text-align: initial;
+    margin: 0 auto;
+    padding: 0px;
+}
+.links {
+    margin-bottom: 20px;
+}
+
+
+#banner{
+border:solid 1px #000;/*枠線(可視化用)*/
+background:#fff;/*背景(可視化用)*/
+position:fixed;/*画面固定※必須*/
+bottom:60%;/*画面下部から初期位置固定※必須・px等任意変更*/
+left:0;/*画面左固定※任意変更*/
+opacity:0;/*要素透明化※必須*/
+z-index: 999;
+}
+/*transition ver.*/
+
+/*animation ver.(面倒なのでベンダーはwebkitだけ)
+気持ちtransitionよりぬるぬる動く*/
+#banner.bannerhover{
+-webkit-animation:bhkey 7s forwards;
+animation:bhkey 7s forwards;
+}
+@-weblit-keyframes bhkey{
+from{bottom:60%;opacity:0;}
+to{bottom:0;opacity:1;}
+}
+@keyframes bhkey{
+from{bottom:60%;opacity:0;}
+to{bottom:0;opacity:1;}
+}
