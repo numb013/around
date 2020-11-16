@@ -1,15 +1,16 @@
-around_server/node_modules
-around_server/public/hot
-around_server/public/storage
-around_server/storage/*.key
-around_server/vendor
-around_server/iam/
-around_server/.env
-around_server/.phpunit.result.cache
-around_server/Homestead.json
-around_server/Homestead.yaml
-around_server/npm-debug.log
-around_server/yarn-error.log
-around_server/yarn-error.log
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/iam/
+iam/
+.env
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+yarn-error.log
 
 
