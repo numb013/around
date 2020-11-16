@@ -100,7 +100,7 @@ class TopController extends Controller
 
     public function wordSearch($address) {
         $http_client = new Client();
-        $api_key = 'AIzaSyCD9iln7jkIDOHkOKPbu-dF2R3pRZK5gws';
+        // $api_key = 'AIzaSyCD9iln7jkIDOHkOKPbu-dF2R3pRZK5gws';
         mb_language("Japanese");//文字コードの設定
         mb_internal_encoding("UTF-8");
         //住所を入れて緯度経度を求める。
