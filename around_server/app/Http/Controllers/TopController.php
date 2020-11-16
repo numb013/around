@@ -73,6 +73,9 @@ class TopController extends Controller
         }
 
 
+
+
+
         $markerData .= $data;
 
         foreach ($nanpa_list as $key => $value) {

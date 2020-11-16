@@ -1,16 +1,31 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        @section('head')
-            @include('layouts.head')  
-        @show 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script> -->
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                @section('header')
-                    @include('layouts.header')  
-                @show
+                <div class="title m-b-md">
+                    NANPA MAP
+                </div>
+
+                <div class="links">
+                    <a href="{{ url('/?pref=29') }}">大阪</a>
+                    <a href="{{ url('/?pref=13') }}">東京</a>
+                    <a href="{{ url('/?pref=40') }}">福岡</a>
+                    <a href="{{ url('/?pref=20') }}">名古屋</a>
+                </div>
 
                 <h3>登録フォーム</h3>
                 @if ($errors->any())
@@ -23,106 +38,135 @@
                 </div>
                 @endif
 
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                登録フォーム
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <!-- <form role="form"> -->
-                                        <form method="post" action="{{action('NanpaPlaceController@create')}}" class="form">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label>場所</label>
-                                                <!-- <input class="form-control"> -->
-                                                <input type="text" class="form-control" name="place_name" value="{{ old('place_name') }}" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>緯度経度</label>
-                                                <!-- <input class="form-control"> -->
-                                                <input type="text" class="form-control" name="longitude_latitude" value="{{ old('longitude_latitude') }}" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>ジャンル</label>
-                                                <select class="form-control" name="genre">
-                                                    @foreach (config('const.genre') as $key => $value) 
-                                                    <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label>男女比率</label>
-                                                <select class="form-control" name="ratio">
-                                                    @foreach (config('const.ratio') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>アイコン</label>
-                                                <select class="form-control" name="icon">
-                                                    @foreach (config('const.icon') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label>時間帯</label>
-                                                <select class="form-control" name="start_time">
-                                                    @foreach (config('const.time') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                                <select class="form-control" name="end_time">
-                                                    @foreach (config('const.time') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-                                                <label>年齢層</label>
-                                                <select class="form-control" name="start_age_group">
-                                                    @foreach (config('const.age_group') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-                                                <select class="form-control" name="end_age_group">
-                                                    @foreach (config('const.age_group') as $key => $value) 
-                                                        <option value=<?php echo $key; ?>> {{ $value }} </option>
-                                                    @endforeach
-                                                </select>
-
-                                            </div>
-
-                                            
-                                            <div class="form-group">
-                                                <label>メモ</label>
-                                                <textarea name="memo" class="form-control">{{ old('memo') }}</textarea>
-                                            </div>
-<!--                                                 <button type="submit" class="btn btn-default">Submit Button</button>
-                                            <button type="reset" class="btn btn-default">Reset Button</button> -->
-                                            <input class="btn btn-default" type="submit" value="送信" />
-                                        </form>
-                                    </div>
-
-                                    <!-- /.col-lg-6 (nested) -->
-                                </div>
-                                <!-- /.row (nested) -->
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
+                <form method="post" action="{{action('NanpaPlaceController@create')}}" class="form">
+                    @csrf
+                    <label>場所</label>
+                    <div>
+                        <input type="text" name="place_name" value="{{ old('place_name') }}" />
                     </div>
-                </div>
+                    <label>ジャンル</label>
+                    <div>
+                        <select name = "genre">
+                            <option value = "1"> ナイトクラブ </option>
+                            <option value = "2"> BAR </option>
+                            <option value = "3"> 路上 </option>
+                            <option value = "4"> 飲食店 </option>
+                            <option value = "5"> ライブハウス </option>
+                            <option value = "6"> ショップ </option>
+                            <option value = "7"> 海 </option>
+                            <option value = "8"> 施設 </option>
+                            <option value = "9"> その他 </option>
+                        </select>
+                    </div>
+                    <label>緯度経度</label>
+                    <div>
+                        <input type="text" name="longitude_latitude" value="{{ old('longitude_latitude') }}" />
+                    </div>
+                    <label>男女比率</label>
+                    <div>
+                        <select name = "ratio">
+                            <option value = "1"> 1 : 9 </option>
+                            <option value = "2"> 2 : 8 </option>
+                            <option value = "3"> 3 : 7 </option>
+                            <option value = "4"> 4 : 6 </option>
+                            <option value = "5"> 5 : 5 </option>
+                            <option value = "6"> 6 : 4 </option>
+                            <option value = "7"> 7 : 3 </option>
+                            <option value = "8"> 8 : 2 </option>
+                            <option value = "9"> 9 : 1 </option>
+                        </select>
+                    </div>
+                    <label>アイコン</label>
+                    <div>
+                        <select name = "icon">
+                            <option value = "1"> 茶色</option>
+                            <option value = "2"> 金髪 </option>
+                            <option value = "3"> 黒髪 </option>
+                        </select>
+                    </div>
+                    <label>時間帯</label>
+                    <div>
+                        <select name = "start_time">
+                            <option value = "0"> 00:00 </option>
+                            <option value = "1"> 01:00 </option>
+                            <option value = "2"> 02:00 </option>
+                            <option value = "3"> 03:00 </option>
+                            <option value = "4"> 04:00 </option>
+                            <option value = "5"> 05:00 </option>
+                            <option value = "6"> 06:00 </option>
+                            <option value = "7"> 07:00 </option>
+                            <option value = "8"> 08:00 </option>
+                            <option value = "9"> 09:00 </option>
+                            <option value = "10"> 10:00 </option>
+                            <option value = "11"> 11:00 </option>
+                            <option value = "12"> 12:00 </option>
+                            <option value = "13"> 13:00 </option>
+                            <option value = "14"> 14:00 </option>
+                            <option value = "15"> 15:00 </option>
+                            <option value = "16"> 16:00 </option>
+                            <option value = "17"> 17:00 </option>
+                            <option value = "18"> 18:00 </option>
+                            <option value = "19"> 19:00 </option>
+                            <option value = "20"> 20:00 </option>
+                            <option value = "21"> 21:00 </option>
+                            <option value = "22"> 22:00 </option>
+                            <option value = "23"> 23:00 </option>
+                            <option value = "24"> 24:00 </option>
+                            </select>
+                            ~
+                            <select name = "end_time">
+                            <option value = "0"> 00:00 </option>
+                            <option value = "1"> 01:00 </option>
+                            <option value = "2"> 02:00 </option>
+                            <option value = "3"> 03:00 </option>
+                            <option value = "4"> 04:00 </option>
+                            <option value = "5"> 05:00 </option>
+                            <option value = "6"> 06:00 </option>
+                            <option value = "7"> 07:00 </option>
+                            <option value = "8"> 08:00 </option>
+                            <option value = "9"> 09:00 </option>
+                            <option value = "10"> 10:00 </option>
+                            <option value = "11"> 11:00 </option>
+                            <option value = "12"> 12:00 </option>
+                            <option value = "13"> 13:00 </option>
+                            <option value = "14"> 14:00 </option>
+                            <option value = "15"> 15:00 </option>
+                            <option value = "16"> 16:00 </option>
+                            <option value = "17"> 17:00 </option>
+                            <option value = "18"> 18:00 </option>
+                            <option value = "19"> 19:00 </option>
+                            <option value = "20"> 20:00 </option>
+                            <option value = "21"> 21:00 </option>
+                            <option value = "22"> 22:00 </option>
+                            <option value = "23"> 23:00 </option>
+                            <option value = "24"> 24:00 </option>
+                        </select>
+                    </div>
+                    <label>年齢層</label>
+                    <div>
+                        <select name = "start_age_group">
+                            <option value = "0"> 10代</option>
+                            <option value = "1"> 20代</option>
+                            <option value = "2"> 30代</option>
+                            <option value = "3"> 40代</option>
+                            <option value = "4"> 50代</option>
+                            </select>
+                            ~
+                            <select name = "end_age_group">
+                            <option value = "0"> 10代</option>
+                            <option value = "1"> 20代</option>
+                            <option value = "2"> 30代</option>
+                            <option value = "3"> 40代</option>
+                            <option value = "4"> 50代</option>
+                        </select>
+                    </div>
+                    <label>メモ</label>
+                    <div>
+                        <textarea name="body">{{ old('body') }}</textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="送信" />
+                </form>
+
             </div>
         </div>
     </body>

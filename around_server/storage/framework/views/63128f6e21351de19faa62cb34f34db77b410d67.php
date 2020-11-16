@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?php echo e(app()->getLocale()); ?>">
+<html lang="<?php echo e(app()->getLocale(), false); ?>">
     <head>
         <?php $__env->startSection('head'); ?>  
             <?php echo $__env->make('layouts.head', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>  
@@ -8,7 +8,6 @@
           <script>
             // //ユーザーの現在の位置情報を取得
             // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-
             // /***** ユーザーの現在の位置情報を取得 *****/
             // function successCallback(position) {
             //   var gl_text = "緯度：" + position.coords.latitude + "<br>";
@@ -20,7 +19,6 @@
             //     gl_text += "速度：" + position.coords.speed + "<br>";
             //   document.getElementById("show_result").innerHTML = gl_text;
             // }
-
             // /***** 位置情報が取得できない場合 *****/
             // function errorCallback(error) {
             //   var err_msg = "";
@@ -61,7 +59,7 @@
 
                 <div id="sample"></div>
                     <!-- <div id="show_result"></div> -->
-                <a href="<?php echo e(url('/nanpa_place')); ?>">投稿</a>
+                <a href="<?php echo e(url('/nanpa_place'), false); ?>">投稿</a>
 
             </div>
         </div>
@@ -87,7 +85,6 @@
                         position: markerLatLng, // マーカーを立てる位置を指定
                         map: map // マーカーを立てる地図を指定
                     });
-
                     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
                         content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
                     });
@@ -107,11 +104,10 @@
                     infoWindow[i].open(map, marker[i]); // 吹き出しの表示
                 });
             }
-
         </script>
         <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script> -->
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCD9iln7jkIDOHkOKPbu-dF2R3pRZK5gws&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=<?php echo e(env('GOOGOLE_MAP_API'), false); ?>&callback=initMap">
         </script>
     </body>
 </html>

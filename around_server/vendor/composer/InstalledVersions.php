@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => '72352a8437a47620ace199c3e9bd552a267135ec',
+    'reference' => '9756c9337b32fe45d61a6a1649b1b8c04cb9067a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -46,6 +46,33 @@ private static $installed = array (
       array (
       ),
       'reference' => '8f8a6e48c5ecb0f991c2fdcf5f154a47d85f9ffd',
+    ),
+    'doctrine/cache' => 
+    array (
+      'pretty_version' => '1.10.2',
+      'version' => '1.10.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '13e3381b25847283a91948d04640543941309727',
+    ),
+    'doctrine/dbal' => 
+    array (
+      'pretty_version' => '2.12.0',
+      'version' => '2.12.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c6d37b4c42aaa3c3ee175f05eca68056f4185646',
+    ),
+    'doctrine/event-manager' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
     ),
     'doctrine/inflector' => 
     array (
@@ -85,12 +112,21 @@ private static $installed = array (
     ),
     'egulias/email-validator' => 
     array (
-      'pretty_version' => '2.1.24',
-      'version' => '2.1.24.0',
+      'pretty_version' => '2.1.23',
+      'version' => '2.1.23.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'ca90a3291eee1538cd48ff25163240695bd95448',
+      'reference' => '5fa792ad1853ae2bc60528dd3e5cbf4542d3c1df',
+    ),
+    'encore/laravel-admin' => 
+    array (
+      'pretty_version' => 'v1.8.10',
+      'version' => '1.8.10.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7a405d4ba1d6b41b3f4d2aaded60d2c27f758c2d',
     ),
     'erusev/parsedown' => 
     array (
@@ -405,12 +441,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => '72352a8437a47620ace199c3e9bd552a267135ec',
+      'reference' => '9756c9337b32fe45d61a6a1649b1b8c04cb9067a',
     ),
     'laravel/tinker' => 
     array (
@@ -459,15 +495,15 @@ private static $installed = array (
     ),
     'myclabs/deep-copy' => 
     array (
-      'pretty_version' => '1.10.2',
-      'version' => '1.10.2.0',
+      'pretty_version' => '1.10.1',
+      'version' => '1.10.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '776f831124e9c62e1a2c601ecc52e776d8bb7220',
+      'reference' => '969b211f9a51aa1f6c01d1d2aef56d3bd91598e5',
       'replaced' => 
       array (
-        0 => '1.10.2',
+        0 => '1.10.1',
       ),
     ),
     'nesbot/carbon' => 
@@ -856,6 +892,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c87adf3fc1cd0bf4758316a3a150d50a8f957ef4',
+    ),
+    'symfony/dom-crawler' => 
+    array (
+      'pretty_version' => 'v5.1.8',
+      'version' => '5.1.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0969122fe144dd8ab2e8c98c7e03eedc621b368c',
     ),
     'symfony/error-handler' => 
     array (

@@ -28,13 +28,16 @@ class CommentPostController extends Controller
         $comment_post_list = CommentPost::select(DB::raw($column))
             ->where('nanpa_place_id', $nanpa_place_id)
             ->orderBy('created_at', 'desc')
-            ->paginate(3);
+            ->get();
+        if ($comment_post_list) {
+            $comment_post_list = $comment_post_list->toArray();
+        }
 
 
-        // if ($comment_post_list) {
-        //     $comment_post_list = $comment_post_list->toArray();
-        // }
 
+        $list = [];
+        $list['nanpa_place'] = $nanpa_place;
+        $list['comment_post_list'] = $comment_post_list;
 
 
         Log::debug("aaaaaaaaaaaaaa");
@@ -42,10 +45,11 @@ class CommentPostController extends Controller
         Log::debug($comment_post_list);
 
         //フォーム入力画ページのviewを表示
-        return view('comment_post.index', compact('nanpa_place','comment_post_list'));
-        // return view('comment_post.index', ['list' => $list,]);
+        return view('comment_post.index', ['list' => $list,]);
         // return view('index', ['input' => $inputs,]);
     }
+
+
 
     public function create(Request $request)
     {
@@ -57,12 +61,11 @@ class CommentPostController extends Controller
         // ]);
         
         //フォームから受け取ったすべてのinputの値を取得
-        $inputs = $request->all();
-        CommentPost::create($inputs);
-        $send['nanpa_place_id'] = $inputs['nanpa_place_id'];
-        // $this->index($send);
-        return redirect('/comment_post?nanpa_place_id='. $inputs['nanpa_place_id']);
+        // $inputs = $request->all();
+
+        // CommentPost::create($inputs);
+
         // return view("form_confirm",["input" => $input]);
-        // return view('comment_post.index');
+        return view('comment_post.index');
     }
 }
