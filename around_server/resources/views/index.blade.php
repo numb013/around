@@ -111,7 +111,7 @@
         </script>
         <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script> -->
         <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCD9iln7jkIDOHkOKPbu-dF2R3pRZK5gws&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGOLE_MAP_API') }}&callback=initMap">
         </script>
     </body>
 </html>
