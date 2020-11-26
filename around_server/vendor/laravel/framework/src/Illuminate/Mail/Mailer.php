@@ -143,6 +143,17 @@ class Mailer implements MailerContract, MailQueueContract
      * @param  mixed  $users
      * @return \Illuminate\Mail\PendingMail
      */
+    public function cc($users)
+    {
+        return (new PendingMail($this))->cc($users);
+    }
+
+    /**
+     * Begin the process of mailing a mailable class instance.
+     *
+     * @param  mixed  $users
+     * @return \Illuminate\Mail\PendingMail
+     */
     public function bcc($users)
     {
         return (new PendingMail($this))->bcc($users);
@@ -207,7 +218,7 @@ class Mailer implements MailerContract, MailQueueContract
     /**
      * Send a new message using a view.
      *
-     * @param  string|array|MailableContract  $view
+     * @param  string|array|\Illuminate\Contracts\Mail\Mailable  $view
      * @param  array  $data
      * @param  \Closure|string  $callback
      * @return void
@@ -357,9 +368,11 @@ class Mailer implements MailerContract, MailQueueContract
     /**
      * Queue a new e-mail message for sending.
      *
-     * @param  string|array|MailableContract  $view
+     * @param  string|array|\Illuminate\Contracts\Mail\Mailable  $view
      * @param  string|null  $queue
      * @return mixed
+     *
+     * @throws \InvalidArgumentException
      */
     public function queue($view, $queue = null)
     {
@@ -400,9 +413,11 @@ class Mailer implements MailerContract, MailQueueContract
      * Queue a new e-mail message for sending after (n) seconds.
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
-     * @param  string|array|MailableContract  $view
+     * @param  string|array|\Illuminate\Contracts\Mail\Mailable  $view
      * @param  string|null  $queue
      * @return mixed
+     *
+     * @throws \InvalidArgumentException
      */
     public function later($delay, $view, $queue = null)
     {
