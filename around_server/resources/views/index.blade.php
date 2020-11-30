@@ -46,7 +46,7 @@
 
             <div class="content">
 
-                <div id="banner" style="display: inline-grid;">
+                <div id="banner" class="banner_center">
                 @section('add_banner')
                     @include('layouts.add_banner')  
                 @show

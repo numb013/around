@@ -7,11 +7,24 @@ html, body {
     margin: 0;
 }
 
+.content {
+    width: 940px; 
+    margin: 0 auto;
+}
+@media(max-width:768px) {
+    .content {
+        width: 100%; 
+        margin: 0 auto;
+    }
+}
+
+
+
 .full-height {
     height: 100vh;
 }
 
-/*            .flex-center {
+/* .flex-center {
     align-items: center;
     display: flex;
     justify-content: center;
@@ -32,7 +45,7 @@ html, body {
 }
 
 .title {
-    font-size: 55px;
+    font-size: 80px;
 }
 
 .links > a {
@@ -70,13 +83,14 @@ html, body {
 
 
 #banner{
-border:solid 1px #000;/*枠線(可視化用)*/
 background:#fff;/*背景(可視化用)*/
 position:fixed;/*画面固定※必須*/
 bottom:60%;/*画面下部から初期位置固定※必須・px等任意変更*/
-left:0;/*画面左固定※任意変更*/
 opacity:0;/*要素透明化※必須*/
 z-index: 999;
+}
+.banner_center {
+    margin: 0 auto;
 }
 /*transition ver.*/
 
@@ -94,3 +108,4 @@ to{bottom:0;opacity:1;}
 from{bottom:60%;opacity:0;}
 to{bottom:0;opacity:1;}
 }
+

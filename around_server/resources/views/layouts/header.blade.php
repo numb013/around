@@ -10,7 +10,7 @@
 			{{ csrf_field() }}
 	        <input type="text" class="form-control" name="search_word" placeholder="東京 渋谷" value="{{ $inputs['search_word'] }}">
 	        <span class="">
-				<input class="btn btn-primary" type="submit" value="検索" />
+				<input style="margin-left: 10px;" class="btn btn-primary" type="submit" value="検索" />
 	    	</span>
 		</form>
 	</div>
