@@ -1,9 +1,12 @@
 <?php
  
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;  // Adminを追加
  
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use DB;
+use App\NanpaPlace;
+use Log;
  
 class HomeController extends Controller
 {
@@ -14,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:admin');  //変更
     }
  
     /**
@@ -24,6 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        $column = '*';
+        $nanpa_list = NanpaPlace::select(DB::raw($column))
+        ->get()->toArray();
+        return view('admin.home', compact('nanpa_list'));
     }
 }
