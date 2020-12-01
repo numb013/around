@@ -41,11 +41,7 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-
-
-
             <div class="content">
-
                 <div id="banner" class="banner_center">
                 @section('add_banner')
                     @include('layouts.add_banner')  
@@ -56,11 +52,11 @@
                 @section('header')
                     @include('layouts.header')  
                 @show
-
-                <div id="sample"></div>
-                    <!-- <div id="show_result"></div> -->
-                <a href="{{ url('/nanpa_place') }}">投稿</a>
-
+                <div style="padding-bottom: 70px">
+                    <div id="sample"></div>
+                        <!-- <div id="show_result"></div> -->
+                    <a href="{{ url('/nanpa_place') }}">投稿</a>
+                </div>
             </div>
         </div>
 

@@ -15,8 +15,9 @@ class NanpaPlaceController extends Controller
      */
     public function index()
     {
-        //フォーム入力画ページのviewを表示
-        return view('nanpa_place.index');
+        $inputs['search_word'] = "";
+        // return view("form_confirm",["input" => $input]);
+        return view('nanpa_place.index', compact('inputs'));
     }
 
     public function create(Request $request)
@@ -34,9 +35,9 @@ class NanpaPlaceController extends Controller
 		$inputs['longitude'] = $longitude_latitude[0];
 		$inputs['latitude'] = $longitude_latitude[1];
 		NanpaPlace::create($inputs);
-
+        $inputs['search_word'] = "";
         // return view("form_confirm",["input" => $input]);
-        return view('nanpa_place.create');
+        return view('nanpa_place.create', compact('inputs'));
     }
 
 
