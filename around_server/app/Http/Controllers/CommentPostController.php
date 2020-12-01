@@ -48,9 +48,6 @@ class CommentPostController extends Controller
         return view('comment_post.index', ['list' => $list,]);
         // return view('index', ['input' => $inputs,]);
     }
-
-
-
     public function create(Request $request)
     {
         //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
@@ -68,4 +65,43 @@ class CommentPostController extends Controller
         // return view("form_confirm",["input" => $input]);
         return view('comment_post.index');
     }
+
+
+
+    //管理画面
+    public function adminDelete(Request $request)
+    {
+        $id = $request->input('id');
+        $column = '*';
+        $detail = CommentPost::select(DB::raw($column))
+        ->where('id', $id)
+        ->first();
+        // return view("form_confirm",["input" => $input]);
+        return view('admin.comment_post.detail', compact('detail'));
+    }
+
+    public function adminEdit(Request $request)
+    {
+        $id = $request->input('id');
+        $column = '*';
+        $detail = CommentPost::select(DB::raw($column))
+        ->where('id', $id)
+        ->first();
+        // return view("form_confirm",["input" => $input]);
+        return view('admin.comment_post.edit', compact('edit'));
+    }
+
+    public function adminUpdate(Request $request)
+    {
+        $inputs = $request->all();
+        CommentPost::where('id', $inputs['id'])->update($inputs);
+
+        $id = $request->id;
+        $column = '*';
+        $detail = CommentPost::select(DB::raw($column))
+        ->where('id', $id)
+        ->first();
+        return view('admin.comment_post.detail', compact('detail'));
+    }
+
 }
