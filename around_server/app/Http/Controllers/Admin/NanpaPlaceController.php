@@ -18,7 +18,11 @@ class NanpaPlaceController extends Controller
     public function index()
     {
         //フォーム入力画ページのviewを表示
-        return view('nanpa_place.index');
+        $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
+        $list = NanpaPlace::select(DB::raw($column))
+            ->where('open_flag', 1)
+            ->get()->toArray();
+        return view('nanpa_place.index', compact('list'));
     }
 
     // public function detail(Request $request)
