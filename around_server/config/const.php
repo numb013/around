@@ -2,7 +2,7 @@
 
 return [
     'pref' => [
-        '0' => ['name' => "日本", 'longitude_latitude' => "31.7161195,120.2786077"],
+        '0' => ['name' => "日本", 'longitude_latitude' => "34.6740899,135.50048"],
         '1' => ['name' => "北海道", 'longitude_latitude' => "43.06417,141.34694"],
         '2' => ['name' => "青森",   'longitude_latitude' => "40.82444,140.74"], 
         '3' => ['name' => "岩手",   'longitude_latitude' => "39.70361,141.1525"],

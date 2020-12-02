@@ -29,18 +29,11 @@ class TopController extends Controller
      */
     public function index(Request $request)
     {
-
-
-
-
-
         $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
         $nanpa_list = NanpaPlace::select(DB::raw($column))
             ->where('open_flag', 1)
             ->get()->toArray();
-
         $inputs['search_word'] = "";
-
         $markerData = "[";
         if (!empty($request->input('pref'))) {
             $pref = $request->input('pref');
@@ -74,28 +67,22 @@ class TopController extends Controller
         }
 
         $markerData .= $data;
-
         foreach ($nanpa_list as $key => $value) {
- 
-        $markerData .= '{';
-        $markerData .= "id:'" . $value["id"] . "',";
-        $markerData .= "name:'" . $value["place_name"] . "',";
-        $markerData .= "lat: " . $value["longitude"] . ",";
-        $markerData .= "lng: " . $value["latitude"] . ",";
-        $markerData .= "icon: 'images/girl_0" . $value["icon"] . ".png',";
-        $markerData .= "genre: '" . config('const.genre')[$value["genre"]] . "',";
-        $markerData .= "ratio: '" . config('const.ratio')[$value["ratio"]] . "',";
-        $markerData .= "time: '" . config('const.time')[$value["start_time"]] . '~' . config('const.time')[$value["end_time"]] . "',";
-        $markerData .= "age_group: '" . config('const.age_group')[$value["start_age_group"]] . '~' . config('const.age_group')[$value["end_age_group"]] . "',";
-        $markerData .= "memo: '" . $value["memo"] . "'";
-        $markerData .= '},';
-
+            $markerData .= '{';
+            $markerData .= "id:'" . $value["id"] . "',";
+            $markerData .= "name:'" . $value["place_name"] . "',";
+            $markerData .= "lat: " . $value["longitude"] . ",";
+            $markerData .= "lng: " . $value["latitude"] . ",";
+            $markerData .= "icon: 'images/girl_0" . $value["icon"] . ".png',";
+            $markerData .= "genre: '" . config('const.genre')[$value["genre"]] . "',";
+            $markerData .= "ratio: '" . config('const.ratio')[$value["ratio"]] . "',";
+            $markerData .= "time: '" . config('const.time')[$value["start_time"]] . '~' . config('const.time')[$value["end_time"]] . "',";
+            $markerData .= "age_group: '" . config('const.age_group')[$value["start_age_group"]] . '~' . config('const.age_group')[$value["end_age_group"]] . "',";
+            $markerData .= "memo: '" . $value["memo"] . "'";
+            $markerData .= '},';
         }
         $markerData1 = $markerData . ']';
         $inputs['markerData'] = $markerData1;
-
-
-Log::debug($inputs);
 
         //フォーム入力画ページのviewを表示
         return view('index',compact('inputs'));
@@ -117,7 +104,6 @@ Log::debug($inputs);
 
         $contents= file_get_contents($url);
         $jsonData = json_decode($contents,true);
-
         $result['0'] = $jsonData["results"][0]["geometry"]["location"]["lat"];
         $result['1'] = $jsonData["results"][0]["geometry"]["location"]["lng"];
         return $result;

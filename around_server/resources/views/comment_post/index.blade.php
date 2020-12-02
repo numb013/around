@@ -1,69 +1,113 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <!-- <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script> -->
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        @section('head')  
+            @include('layouts.head')  
+        @show
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
-                    NANPA MAP
-                </div>
-
-                <div class="links">
-                    <a href="{{ url('/?pref=29') }}">大阪</a>
-                    <a href="{{ url('/?pref=13') }}">東京</a>
-                    <a href="{{ url('/?pref=40') }}">福岡</a>
-                    <a href="{{ url('/?pref=20') }}">名古屋</a>
-                </div>
+<!--                 <div id="banner" class="banner_center">
+                @section('add_banner')
+                    @include('layouts.add_banner')  
+                @show
+                </div> -->
 
 
+                @section('header')
+                    @include('layouts.header')  
+                @show
 
-{{ $list["nanpa_place"]["place_name"] }}
-{{ $list["nanpa_place"]["genre"] }}
-{{ $list["nanpa_place"]["ratio"] }}
-{{ $list["nanpa_place"]["time"] }}
-{{ $list["nanpa_place"]["age_group"] }}
-
-
-                <h3>コメントフォーム</h3>
-                <form method="post" action="{{action('CommentPostController@create')}}" class="form">
-                    {{ csrf_field() }}
-                    <label>名前</label>
-                    <div>
-                        <input type="text" name="name" value="{{ old('name') }}" />
+                <br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ $list["nanpa_place"]["place_name"] }}
                     </div>
-<!--                     <label>ジャンル</label>
-                    <div>
-                        <select name = "genre">
-                            <option value = "1"> ナイトクラブ </option>
-                            <option value = "2"> BAR </option>
-                            <option value = "3"> 路上 </option>
-                            <option value = "4"> 飲食店 </option>
-                            <option value = "5"> ライブハウス </option>
-                            <option value = "6"> ショップ </option>
-                            <option value = "7"> 海 </option>
-                            <option value = "8"> 施設 </option>
-                            <option value = "9"> その他 </option>
-                        </select>
-                    </div> -->
-                    <label>コメント</label>
-                    <div>
-                        <textarea name="comment">{{ old('comment') }}</textarea>
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="送信" />
-                </form>
+                    <div class="panel-body">
+                        <div class="row">
 
+
+
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>ジャンル</th>
+                                            <th>割合</th>
+                                            <th>時間帯</th>
+                                            <th>年代</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                    <td>{{ $list["nanpa_place"]["genre"] }}</td>
+                                                    <td>{{ $list["nanpa_place"]["ratio"] }}</td>
+                                                    <td>{{ $list["nanpa_place"]["time"] }}</td>
+                                                    <td>{{ $list["nanpa_place"]["age_group"] }}</td>
+                                                </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <!-- /.table-responsive -->
+                            </div>
+
+
+
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>名前</th>
+                                            <th>コメント</th>
+                                            <th>時間</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($list['comment_post_list'] as $key => $value)
+                                                <tr>
+                                                    <td>{{ $value['name'] }}</td>
+                                                    <td>{{ $value['comment'] }}</td>
+                                                    <td>{{ $value['created_at'] }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <!-- /.table-responsive -->
+                            </div>
+                        <!-- /.col-lg-8 (nested) -->
+                        </div>
+                    <!-- /.row -->
+                    </div>
+                    <div class="panel panel-default" style="margin: 20px;">
+                        <div class="panel-heading">
+                            口コミ投稿
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form method="post" action="{{action('CommentPostController@create')}}" class="form">
+                                        {{ csrf_field() }}
+                                        <div>
+                                            <input class="form-control" placeholder="名前" type="text" name="name" value="{{ old('name') }}" />
+                                        </div>
+                                        <br>
+                                        <div>
+                                            <textarea class="form-control" placeholder="コメント" name="comment">{{ old('comment') }}</textarea>
+                                        </div>
+                                        <input type="hidden" name="nanpa_place_id" value="{{ $list['nanpa_place']['id'] }}">
+                                        <br>
+                                        <input class="btn btn-primary" type="submit" value="送信" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
