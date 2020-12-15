@@ -1,14 +1,20 @@
 <div class="title m-b-md">
+	<a href="/">
     NANPA MAP
+</a>
 </div>
-
-
 
 <div class="col-lg-6">
 	<div class="form-group">
 		<form role="form" method="get" action="{{action('TopController@index')}}" style="width: 100%; display: flex;">
 			{{ csrf_field() }}
-	        <input type="text" class="form-control" name="search_word" placeholder="東京 渋谷" value="{{ $inputs['search_word'] }}">
+			<?php 
+				$search_word = "";
+				if(!empty($inputs['search_word'])) {
+					$search_word = $inputs['search_word'];
+				};
+			?>
+	        <input type="text" class="form-control" name="search_word" placeholder="東京 渋谷" value="{{ $search_word }}">
 	        <span class="">
 				<input style="margin-left: 10px;" class="btn btn-primary" type="submit" value="検索" />
 	    	</span>

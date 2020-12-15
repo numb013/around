@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\NanpaPlace;
 use App\CommentPost;
 use DB;
@@ -41,11 +42,10 @@ class CommentPostController extends Controller
 
 
         Log::debug("aaaaaaaaaaaaaa");
-        Log::debug($nanpa_place);
         Log::debug($comment_post_list);
 
         //フォーム入力画ページのviewを表示
-        return view('comment_post.index', ['list' => $list,]);
+        return view('comment_post.index', compact('list'));
         // return view('index', ['input' => $inputs,]);
     }
     public function create(Request $request)
@@ -57,13 +57,23 @@ class CommentPostController extends Controller
         //     'body'  => 'required',
         // ]);
         
+        $id = $request->nanpa_place_id;
         //フォームから受け取ったすべてのinputの値を取得
-        // $inputs = $request->all();
 
-        // CommentPost::create($inputs);
+Log::debug("sssssssssssss");
+Log::debug($request->all());
+        $request = Arr::only($request->all(), [
+            'nanpa_place_id',
+            'name',
+            'comment',
+        ]);
 
-        // return view("form_confirm",["input" => $input]);
-        return view('comment_post.index');
+
+        CommentPost::create($request);
+
+
+return redirect('/comment_post?nanpa_place_id='.$id);
+
     }
 
 
