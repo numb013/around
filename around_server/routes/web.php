@@ -13,7 +13,7 @@
 
 Auth::routes();
 Route::get('/', 'TopController@index');
-Route::post('/', 'TopController@index');
+// Route::post('/', 'TopController@index');
 Route::get('/nanpa_place', 'NanpaPlaceController@index');
 Route::post('/nanpa_place/create', 'NanpaPlaceController@create');
 Route::post('/nanpa_place/thanks', 'NanpaPlaceController@send')->name('contact.send');

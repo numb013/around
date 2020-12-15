@@ -6,7 +6,7 @@
 
 <div class="col-lg-6">
 	<div class="form-group">
-		<form role="form" method="post" action="{{action('TopController@index')}}" style="width: 100%; display: flex;">
+		<form role="form" method="get" action="{{action('TopController@index')}}" style="width: 100%; display: flex;">
 			{{ csrf_field() }}
 	        <input type="text" class="form-control" name="search_word" placeholder="東京 渋谷" value="{{ $inputs['search_word'] }}">
 	        <span class="">
