@@ -31,7 +31,7 @@ class TopController extends Controller
     {
 
 
-
+Log::debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 
         $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
@@ -93,9 +93,6 @@ class TopController extends Controller
         }
         $markerData1 = $markerData . ']';
         $inputs['markerData'] = $markerData1;
-
-
-Log::debug($inputs);
 
         //フォーム入力画ページのviewを表示
         return view('index',compact('inputs'));
