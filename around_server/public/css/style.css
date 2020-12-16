@@ -88,7 +88,9 @@ html, body {
 .links {
     margin-bottom: 20px;
 }
-
+.title a:hover {
+    text-decoration: none;
+}
 
 #banner{
 background:#fff;/*背景(可視化用)*/

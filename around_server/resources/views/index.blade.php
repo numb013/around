@@ -82,7 +82,7 @@
                         map: map // マーカーを立てる地図を指定
                     });
                     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-                        content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
+                        content: '<div class="sample"><p><a href="/around/around_server/public/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
                     });
                     markerEvent(i); // マーカーにクリックイベントを追加
                 }

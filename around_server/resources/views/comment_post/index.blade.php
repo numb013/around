@@ -9,9 +9,7 @@
 
 
 <style>
-.status {
-    width:33.3%; float:left; padding: 3px;
-}
+
 ul.icons {
     cursor: default;
     list-style: none;
@@ -47,9 +45,6 @@ ul.icons li {
                     <div class="panel-heading" style="padding: 0px;">
                         <h1>{{ $list["nanpa_place"]["place_name"] }}</h1>
                         <p>{{ $list["nanpa_place"]["genre"] }}</p>
-
-
-                        
                         <div class="panel-body">
                             <ul class="icons labeled">
                                 <li>
@@ -75,21 +70,7 @@ ul.icons li {
                                 </li>
                             </ul>
                         </div>
-
-
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div class="panel panel-default" style="margin: 20px; text-align: left;">
                         <div class="panel-heading">
@@ -119,8 +100,6 @@ ul.icons li {
                         </div>
                     </div>
 
-
-
                     <div class="panel panel-default" style="margin: 20px;">
                         <div class="panel-heading">
                             口コミ投稿
@@ -145,9 +124,6 @@ ul.icons li {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
