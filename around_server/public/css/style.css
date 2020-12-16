@@ -1,7 +1,6 @@
 html, body {
-    background-color: #fff;
+    /* background-color: #fff; */
     color: #636b6f;
-    font-family: 'Raleway', sans-serif;
     font-weight: 100;
     height: 100vh;
     margin: 0;
@@ -45,9 +44,18 @@ html, body {
 }
 
 .title {
+    font-family: 'Raleway', sans-serif;
     font-size: 80px;
 }
-
+@media(max-width:768px) {
+    .content {
+        width: 100%; 
+        margin: 0 auto;
+    }
+    .title {
+        font-size: 55px;
+    }
+}
 .links > a {
     color: #636b6f;
     padding: 0 25px;

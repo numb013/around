@@ -64,6 +64,10 @@ class TopController extends Controller
             $data .= "lng: " . $longitude_latitude[1] . ",";
             $data .= "icon: ''";
             $data .= '},';
+
+
+Log::debug("jjjjjjjjjjjjjjjjjjj");
+
         }
 
         $markerData .= $data;
@@ -104,6 +108,12 @@ class TopController extends Controller
 
         $contents= file_get_contents($url);
         $jsonData = json_decode($contents,true);
+
+
+Log::debug("dddddddddddddddddddddddd");
+Log::debug($jsonData);
+
+
         $result['0'] = $jsonData["results"][0]["geometry"]["location"]["lat"];
         $result['1'] = $jsonData["results"][0]["geometry"]["location"]["lng"];
         return $result;
