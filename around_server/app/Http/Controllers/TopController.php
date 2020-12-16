@@ -29,14 +29,6 @@ class TopController extends Controller
      */
     public function index(Request $request)
     {
-<<<<<<< HEAD
-
-
-Log::debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-
-
-=======
->>>>>>> main
         $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
         $nanpa_list = NanpaPlace::select(DB::raw($column))
             ->where('open_flag', 1)
@@ -72,6 +64,10 @@ Log::debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
             $data .= "lng: " . $longitude_latitude[1] . ",";
             $data .= "icon: ''";
             $data .= '},';
+
+
+Log::debug("jjjjjjjjjjjjjjjjjjj");
+
         }
 
         $markerData .= $data;
@@ -112,6 +108,12 @@ Log::debug("AAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
         $contents= file_get_contents($url);
         $jsonData = json_decode($contents,true);
+
+
+Log::debug("dddddddddddddddddddddddd");
+Log::debug($jsonData);
+
+
         $result['0'] = $jsonData["results"][0]["geometry"]["location"]["lat"];
         $result['1'] = $jsonData["results"][0]["geometry"]["location"]["lng"];
         return $result;

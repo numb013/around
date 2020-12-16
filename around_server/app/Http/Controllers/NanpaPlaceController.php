@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\NanpaPlace;
 use Log;
@@ -23,12 +24,11 @@ class NanpaPlaceController extends Controller
     public function create(Request $request)
     {
         //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
-        // $request->validate([
-        //     'email' => 'required|email',
-        //     'title' => 'required',
-        //     'body'  => 'required',
-        // ]);
-        
+        $validator = Validator::make($request->all(), [
+            'place_name' => 'required',
+            'longitude_latitude' => 'required',
+        ])->validate();        
+
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
 		$longitude_latitude = explode(",", $inputs['longitude_latitude']);
@@ -39,10 +39,6 @@ class NanpaPlaceController extends Controller
         // return view("form_confirm",["input" => $input]);
         return view('nanpa_place.create', compact('inputs'));
     }
-
-
-
-
 
     //管理画面
     public function adminIndex()
