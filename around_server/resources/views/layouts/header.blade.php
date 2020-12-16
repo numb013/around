@@ -1,5 +1,5 @@
 <div class="title m-b-md">
-	<a href="/">
+	<a href="{{ url('/') }}">
     NANPA MAP
 </a>
 </div>
