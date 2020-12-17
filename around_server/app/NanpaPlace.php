@@ -10,6 +10,7 @@ class NanpaPlace extends Model
 		'place_name',
 		'genre',
 		'score',
+		'longitude_latitude',
 		'longitude',
 		'latitude',
 		'open_flag',

@@ -42,7 +42,7 @@ return [
         '37' => ['name' => "愛媛",  'longitude_latitude' => "33.84167,132.76611"], 
         '38' => ['name' => "徳島",  'longitude_latitude' => "34.06583,134.55944"], 
         '39' => ['name' => "高知",  'longitude_latitude' => "33.55972,133.53111"], 
-        '40' => ['name' => "福岡",  'longitude_latitude' => "33.60639,130.41806"], 
+        '40' => ['name' => "福岡",  'longitude_latitude' => "33.587615,130.3932416"], 
         '41' => ['name' => "佐賀",  'longitude_latitude' => "33.24944,130.29889"], 
         '42' => ['name' => "大分",  'longitude_latitude' => "33.23806,131.6125"], 
         '43' => ['name' => "長崎",  'longitude_latitude' => "32.74472,129.87361"], 

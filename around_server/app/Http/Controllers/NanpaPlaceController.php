@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\NanpaPlace;
 use Log;
+use DB;
 
 class NanpaPlaceController extends Controller
 {

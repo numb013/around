@@ -29,7 +29,7 @@ class TopController extends Controller
      */
     public function index(Request $request)
     {
-        $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
+        $column = 'id,place_name,genre,longitude_latitude,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
         $nanpa_list = NanpaPlace::select(DB::raw($column))
             ->where('open_flag', 1)
             ->get()->toArray();
@@ -72,11 +72,12 @@ Log::debug("jjjjjjjjjjjjjjjjjjj");
 
         $markerData .= $data;
         foreach ($nanpa_list as $key => $value) {
+            $longitude_latitude_1 = explode(",", $value['longitude_latitude']);
             $markerData .= '{';
             $markerData .= "id:'" . $value["id"] . "',";
             $markerData .= "name:'" . $value["place_name"] . "',";
-            $markerData .= "lat: " . $value["longitude"] . ",";
-            $markerData .= "lng: " . $value["latitude"] . ",";
+            $markerData .= "lat: " . $longitude_latitude_1[0] . ",";
+            $markerData .= "lng: " . $longitude_latitude_1[1] . ",";
             $markerData .= "icon: 'images/girl_0" . $value["icon"] . ".png',";
             $markerData .= "genre: '" . config('const.genre')[$value["genre"]] . "',";
             $markerData .= "ratio: '" . config('const.ratio')[$value["ratio"]] . "',";
