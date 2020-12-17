@@ -65,9 +65,6 @@ class TopController extends Controller
             $data .= "icon: ''";
             $data .= '},';
 
-
-Log::debug("jjjjjjjjjjjjjjjjjjj");
-
         }
 
         $markerData .= $data;
