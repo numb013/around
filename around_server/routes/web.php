@@ -25,8 +25,6 @@ Route::post('/contact/thanks', 'ContactController@send')->name('contact.send');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
-
 //管理画面
 Route::group(['prefix' => 'admin'], function() {
     Route::get('/', function () { return redirect('/admin/home'); });
@@ -38,12 +36,14 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout','Admin\LoginController@logout')->name('admin.logout');
     Route::get('/home','Admin\HomeController@index')->name('admin.home');
-	Route::get('/nanpa_place/admin_index','Admin\NanpaPlaceController@adminIndex')->name('admin.nanpa_place');
+    Route::get('/nanpa_place/admin_index','Admin\NanpaPlaceController@adminIndex')->name('admin.nanpa_place');
+	Route::get('/nanpa_place/admin_create', 'NanpaPlaceController@adminCreate');
 	Route::get('/nanpa_place/admin_detail','NanpaPlaceController@adminDetail')->name('admin.nanpa_place.detail');
 	Route::get('/nanpa_place/admin_edit', 'NanpaPlaceController@adminEdit');
-	Route::get('/nanpa_place/admin_update', 'NanpaPlaceController@adminUpdate');
-	Route::post('/nanpa_place/admin_delete','Admin\NanpaPlaceController@adminDelete')->name('admin.nanpa_place.delete');
-
+	Route::post('/nanpa_place/admin_search', 'NanpaPlaceController@adminSearch');
+	Route::post('/nanpa_place/admin_update', 'NanpaPlaceController@adminUpdate');
+	Route::get('/nanpa_place/admin_delete','Admin\NanpaPlaceController@adminDelete')->name('admin.nanpa_place.delete');
+    Route::post('cast/complete', 'CastController@adminComplete');
 
     Route::post('/comment_post/admin_delete', 'CommentPostController@adminDelete');
     Route::post('/comment_post/admin_edit', 'CommentPostController@adminEdit');
