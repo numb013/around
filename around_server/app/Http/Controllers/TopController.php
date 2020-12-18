@@ -64,7 +64,6 @@ class TopController extends Controller
             $data .= "lng: " . $longitude_latitude[1] . ",";
             $data .= "icon: ''";
             $data .= '},';
-
         }
 
         $markerData .= $data;

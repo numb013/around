@@ -36,18 +36,22 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout','Admin\LoginController@logout')->name('admin.logout');
     Route::get('/home','Admin\HomeController@index')->name('admin.home');
-    Route::get('/nanpa_place/admin_index','NanpaPlaceController@adminIndex')->name('admin.nanpa_place');
+
+
+    Route::get('/nanpa_place/admin_index','NanpaPlaceController@adminIndex');
 	Route::get('/nanpa_place/admin_create', 'NanpaPlaceController@adminCreate');
-	Route::get('/nanpa_place/admin_detail','NanpaPlaceController@adminDetail')->name('admin.nanpa_place.detail');
+	Route::get('/nanpa_place/admin_detail','NanpaPlaceController@adminDetail');
 	Route::get('/nanpa_place/admin_edit', 'NanpaPlaceController@adminEdit');
 	Route::post('/nanpa_place/admin_search', 'NanpaPlaceController@adminSearch');
 	Route::post('/nanpa_place/admin_update', 'NanpaPlaceController@adminUpdate');
-	Route::get('/nanpa_place/admin_delete','NanpaPlaceController@adminDelete')->name('admin.nanpa_place.delete');
+	Route::get('/nanpa_place/admin_delete','NanpaPlaceController@adminDelete');
     Route::post('/nanpa_place/complete', 'NanpaPlaceController@adminComplete');
 
-    Route::post('/comment_post/admin_delete', 'CommentPostController@adminDelete');
+    Route::get('/comment_post/admin_index','CommentPostController@adminIndex');
+    Route::get('/comment_post/admin_list','CommentPostController@adminList');
     Route::post('/comment_post/admin_edit', 'CommentPostController@adminEdit');
     Route::post('/comment_post/admin_update', 'CommentPostController@adminUpdate');
+    Route::post('/comment_post/admin_delete', 'CommentPostController@adminDelete');
 });
 
 

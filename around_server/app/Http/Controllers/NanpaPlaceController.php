@@ -32,6 +32,8 @@ class NanpaPlaceController extends Controller
 
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
+        $inputs['longitude_latitude'] = str_replace('(', '', $inputs['longitude_latitude']);
+        $inputs['longitude_latitude'] = str_replace(')', '', $inputs['longitude_latitude']);
 		$longitude_latitude = explode(",", $inputs['longitude_latitude']);
 		$inputs['longitude'] = $longitude_latitude[0];
 		$inputs['latitude'] = $longitude_latitude[1];
@@ -95,6 +97,8 @@ class NanpaPlaceController extends Controller
 
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
+        $inputs['longitude_latitude'] = str_replace('(', '', $inputs['longitude_latitude']);
+        $inputs['longitude_latitude'] = str_replace(')', '', $inputs['longitude_latitude']);
 		$longitude_latitude = explode(",", $inputs['longitude_latitude']);
 		$inputs['longitude'] = $longitude_latitude[0];
 		$inputs['latitude'] = $longitude_latitude[1];

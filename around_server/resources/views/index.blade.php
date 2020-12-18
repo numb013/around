@@ -47,8 +47,6 @@
                     @include('layouts.add_banner')  
                 @show
                 </div>
-
-
                 @section('header')
                     @include('layouts.header')  
                 @show
@@ -65,8 +63,6 @@
             var marker = [];
             var infoWindow = [];
             var markerData = <?php echo $inputs['markerData']; ?>
-
-
             function initMap() {
                 // 地図の作成
                 var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
@@ -80,7 +76,7 @@
                     marker[i] = new google.maps.Marker({ // マーカーの追加
                         position: markerLatLng, // マーカーを立てる位置を指定
                         map: map // マーカーを立てる地図を指定
-                    });
+                    });{{ url('/admin/viewer/list') }}
                     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
                         content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
                     });

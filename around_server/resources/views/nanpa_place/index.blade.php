@@ -43,16 +43,10 @@
                                     </div>
                                 <div class="form-group">
                                     <label>ジャンル</label>
-                                        <select class="form-control" name = "genre">
-                                            <option value = "1"> ナイトクラブ </option>
-                                            <option value = "2"> BAR </option>
-                                            <option value = "3"> 路上 </option>
-                                            <option value = "4"> 飲食店 </option>
-                                            <option value = "5"> ライブハウス </option>
-                                            <option value = "6"> ショップ </option>
-                                            <option value = "7"> 海 </option>
-                                            <option value = "8"> 施設 </option>
-                                            <option value = "9"> その他 </option>
+                                        <select name="genre" class="form-control">
+                                            @foreach (config('const.genre') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 <div class="form-group">
@@ -61,102 +55,48 @@
                                     </div>
                                 <div class="form-group">
                                     <label>男女比率</label>
-                                        <select class="form-control" name = "ratio">
-                                            <option value = "1"> 1 : 9 </option>
-                                            <option value = "2"> 2 : 8 </option>
-                                            <option value = "3"> 3 : 7 </option>
-                                            <option value = "4"> 4 : 6 </option>
-                                            <option value = "5"> 5 : 5 </option>
-                                            <option value = "6"> 6 : 4 </option>
-                                            <option value = "7"> 7 : 3 </option>
-                                            <option value = "8"> 8 : 2 </option>
-                                            <option value = "9"> 9 : 1 </option>
+                                        <select name="ratio" class="form-control">
+                                            @foreach (config('const.ratio') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 <div class="form-group">
                                     <label>アイコン</label>
-                                        <select class="form-control" name = "icon">
-                                            <option value = "1"> 茶色</option>
-                                            <option value = "2"> 金髪 </option>
-                                            <option value = "3"> 黒髪 </option>
+                                        <select name="icon" class="form-control">
+                                            @foreach (config('const.icon') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>時間帯</label>
-                                        <select class="form-control" name = "start_time">
-                                            <option value = "0"> 00:00 </option>
-                                            <option value = "1"> 01:00 </option>
-                                            <option value = "2"> 02:00 </option>
-                                            <option value = "3"> 03:00 </option>
-                                            <option value = "4"> 04:00 </option>
-                                            <option value = "5"> 05:00 </option>
-                                            <option value = "6"> 06:00 </option>
-                                            <option value = "7"> 07:00 </option>
-                                            <option value = "8"> 08:00 </option>
-                                            <option value = "9"> 09:00 </option>
-                                            <option value = "10"> 10:00 </option>
-                                            <option value = "11"> 11:00 </option>
-                                            <option value = "12"> 12:00 </option>
-                                            <option value = "13"> 13:00 </option>
-                                            <option value = "14"> 14:00 </option>
-                                            <option value = "15"> 15:00 </option>
-                                            <option value = "16"> 16:00 </option>
-                                            <option value = "17"> 17:00 </option>
-                                            <option value = "18"> 18:00 </option>
-                                            <option value = "19"> 19:00 </option>
-                                            <option value = "20"> 20:00 </option>
-                                            <option value = "21"> 21:00 </option>
-                                            <option value = "22"> 22:00 </option>
-                                            <option value = "23"> 23:00 </option>
-                                            <option value = "24"> 24:00 </option>
+                                        <select name="start_time" class="form-control">
+                                            @foreach (config('const.time') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                             ~
-                                        <select class="form-control" name = "end_time">
-                                            <option value = "0"> 00:00 </option>
-                                            <option value = "1"> 01:00 </option>
-                                            <option value = "2"> 02:00 </option>
-                                            <option value = "3"> 03:00 </option>
-                                            <option value = "4"> 04:00 </option>
-                                            <option value = "5"> 05:00 </option>
-                                            <option value = "6"> 06:00 </option>
-                                            <option value = "7"> 07:00 </option>
-                                            <option value = "8"> 08:00 </option>
-                                            <option value = "9"> 09:00 </option>
-                                            <option value = "10"> 10:00 </option>
-                                            <option value = "11"> 11:00 </option>
-                                            <option value = "12"> 12:00 </option>
-                                            <option value = "13"> 13:00 </option>
-                                            <option value = "14"> 14:00 </option>
-                                            <option value = "15"> 15:00 </option>
-                                            <option value = "16"> 16:00 </option>
-                                            <option value = "17"> 17:00 </option>
-                                            <option value = "18"> 18:00 </option>
-                                            <option value = "19"> 19:00 </option>
-                                            <option value = "20"> 20:00 </option>
-                                            <option value = "21"> 21:00 </option>
-                                            <option value = "22"> 22:00 </option>
-                                            <option value = "23"> 23:00 </option>
-                                            <option value = "24"> 24:00 </option>
+                                        <select name="end_time" class="form-control">
+                                            @foreach (config('const.time') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 <div class="form-group">
                                     <label>年齢層</label>
-                                        <select class="form-control" name = "start_age_group">
-                                            <option value = "0"> 10代</option>
-                                            <option value = "1"> 20代</option>
-                                            <option value = "2"> 30代</option>
-                                            <option value = "3"> 40代</option>
-                                            <option value = "4"> 50代</option>
+                                        <select name="start_age_group" class="form-control">
+                                            @foreach (config('const.age_group') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                             ~
-                                        <select class="form-control" name = "end_age_group">
-                                            <option value = "0"> 10代</option>
-                                            <option value = "1"> 20代</option>
-                                            <option value = "2"> 30代</option>
-                                            <option value = "3"> 40代</option>
-                                            <option value = "4"> 50代</option>
+                                        <select name="end_age_group" class="form-control">
+                                            @foreach (config('const.age_group') as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 <div class="form-group">
@@ -165,7 +105,6 @@
                                     </div>
                                     </div>
                                     <input class="btn btn-primary" type="submit" value="送信" />
-
                                 </form>
                             </div>
                         </div>

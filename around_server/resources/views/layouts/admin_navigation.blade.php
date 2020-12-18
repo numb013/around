@@ -32,10 +32,10 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="/admin/nanpa_place/admin_index" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
+                    <a href="{{ url('/admin/nanpa_place/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
                 </li>
                 <li>
-                    <a href="/admin/viewer/list" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
+                    <a href="{{ url('/admin/viewer/list') }}" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
                 </li>
             </ul>
         </div>
