@@ -1,3 +1,5 @@
+@extends('layouts.app_admin')
+@section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
@@ -27,63 +29,45 @@
                                         <th>Date</th>
                                     </tr>
                                     </thead>
-
-
                                     <tbody>
                                     <tr>
-                                        <td>name</td>
+                                        <td>場所</td>
                                         <td>{{ $detail['place_name'] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['genre'] }}</td>
+                                        <td>ジャンル</td>
+                                        <td>{{ config('const.genre')[$detail['genre']] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['score'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>name</td>
+                                        <td>緯度経度</td>
                                         <td>{{ $detail['longitude_latitude'] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['longitude'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['latitude'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>name</td>
+                                        <td>公開/非公開</td>
                                         <td>{{ $detail['open_flag'] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['ratio'] }}</td>
+                                        <td>割合</td>
+                                        <td>{{ config('const.ratio')[$detail['ratio']] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['icon'] }}</td>
+                                        <td>アイコン</td>
+                                        <td>{{ config('const.icon')[$detail['icon']] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['start_time'] }}</td>
+                                        <td>時間</td>
+                                        <td>{{ config('const.time')[$detail['start_time']] }}　〜　{{ config('const.time')[$detail['end_time']] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['end_time'] }}</td>
+                                        <td>年代</td>
+                                        <td>{{ config('const.age_group')[$detail['start_age_group']] }}　〜　{{ config('const.age_group')[$detail['end_age_group']] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['start_age_group'] }}</td>
+                                        <td>スコア</td>
+                                        <td>{{ $detail['score'] }}</td>
                                     </tr>
                                     <tr>
-                                        <td>name</td>
-                                        <td>{{ $detail['end_age_group'] }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>name</td>
+                                        <td>メモ</td>
                                         <td>{{ $detail['memo'] }}</td>
                                     </tr>
                                     </tbody>
@@ -100,3 +84,4 @@
         </div>
     </div>
 </div>
+@endsection

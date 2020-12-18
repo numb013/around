@@ -1,77 +1,164 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>NANPA MAP</title>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- Custom CSS -->
+        <link href="{{ asset('css/startmin.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- MetisMenu CSS -->
+        <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+        <!-- Timeline CSS -->
+        <link href="{{ asset('css/timeline.css') }}" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<!--     <style>body{background-color: tomato;}</style>  -->
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <!-- Morris Charts CSS -->
+        <link href="{{ asset('css/morris.css') }}" rel="stylesheet">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+        <!-- Custom Fonts -->
+        <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 
-                    </ul>
+        <!-- jQuery -->
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('admin.logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+        <!-- Metis Menu Plugin JavaScript -->
+        <script src="{{ asset('js/metisMenu.min.js') }}"></script>
+
+        <!-- Morris Charts JavaScript -->
+        <script src="{{ asset('js/raphael.min.js') }}"></script>
+
+        <!-- Custom Theme JavaScript -->
+        <script src="{{ asset('js/startmin.js') }}"></script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="wrapper">
+            @if( Auth::check() )
+                <!-- Navigation -->
+                <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/admin">NANPA MAP</a>
+                    </div>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <ul class="nav navbar-right navbar-top-links">
+                        <li class="dropdown navbar-inverse">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <a href="{{ route('admin.logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
-                                </div>
-                            </li>
-                        @endguest
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a class="text-center" href="#">
+                                        <strong>See All Alerts</strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </div>
-            </div>
-        </nav>
+                    <!-- /.navbar-top-links -->
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+
+                    <div class="navbar-default sidebar" role="navigation">
+                        <div class="sidebar-nav navbar-collapse">
+                            <ul class="nav" id="side-menu">
+                                <li>
+                                    <a href="/admin/request_list/list" class=""><i class="fa fa-dashboard fa-fw"></i>リクエスト</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/cast/list" class=""><i class="fa fa-dashboard fa-fw"></i>キャスト</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/viewer/list" class=""><i class="fa fa-dashboard fa-fw"></i>視聴者</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/company/list" class=""><i class="fa fa-dashboard fa-fw"></i>事務所</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/notice/list" class=""><i class="fa fa-dashboard fa-fw"></i>お知らせ</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-bar-chart-o fa-fw"></i>カテゴリー管理
+                                        <span class="fa arrow"></span>
+                                    </a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="/admin/category/cast_category_list">キャスト</a>
+                                        </li>
+                                        <li>
+                                            <a href="/admin/category/request_category_list">リクエスト</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-second-level -->
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-bar-chart-o fa-fw"></i>支払い管理
+                                        <span class="fa arrow"></span>
+                                    </a>
+                                    <ul class="nav nav-second-level">
+                                        <li>
+                                            <a href="/admin/request_list/list">Flot Charts</a>
+                                        </li>
+                                        <li>
+                                            <a href="/admin/request_list/list">Morris.js Charts</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /.nav-second-level -->
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div id="page-wrapper">
+                    @yield('content')
+                    <!-- /.container-fluid -->
+                </div>
+            <!-- /#page-wrapper -->
+            @else
+                @yield('content')
+            @endif
+
+        </div>
+        <!-- /#wrapper -->
+
+
+
+
+    </body>
+</html>
+
 </html>
