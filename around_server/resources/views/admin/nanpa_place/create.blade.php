@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">キャスト作成</h1>
+            <h1 class="page-header">ナンパスポット作成</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    作成<a href="/admin/cast/list">戻る</a>
+                    作成<a href="/admin/nanpa_place/list">戻る</a>
                 </div>
                     <div class="panel-body">
                         <div class="row">

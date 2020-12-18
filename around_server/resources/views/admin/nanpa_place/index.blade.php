@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">キャスト一覧</h1>
+            <h1 class="page-header">ナンパスポット一覧</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -18,7 +18,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <form role="form" method="post" action="{{action('NanpaPlace@adminSearch')}}" class="form">
+                        <form role="form" method="post" action="" class="form">
                             {{ csrf_field() }}
                             <div class="col-lg-8">
                                 <div class="form-group">
@@ -26,13 +26,6 @@
                                     <input class="form-control" name="free_word" placeholder="タイトル　タイトル　依頼" value="{{ old('name') }}">
                                 </div>
 
-                                <!-- <div data-toggle='buttons' id='menu' class="form-group">
-                                   @foreach (config('const.request_status') as $key => $value)
-                                        <label class='btn btn-default' for="{{ 'check'.$key }}" style="margin: 2px;">
-                                        <input id="{{ 'check'.$key }}" type="checkbox" name="checkbox[]" value="{{ $value }}"{{ is_array(old("checkbox")) && in_array("$value", old("checkbox"), true)? ' checked' : '' }}>{{ $value }}
-                                        </label>
-                                    @endforeach
-                                </div> -->
                                 <button type="submit" class="btn btn-default">送信</button>
                             </div>
                         </form>
@@ -50,7 +43,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i>未完了リクエスト
-                    <a href="/admin/cast/create">キャスト新規作成</a>
+                    <a href="/admin/nanpa_place/admin_create">新規作成</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -65,6 +58,7 @@
                                         <th>緯度経度</th>
                                         <th>アイコン</th>                                        
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -74,7 +68,8 @@
                                                 <td>{{ $value['genre'] }}</td>
                                                 <td>{{ $value['longitude_latitude'] }}</td>
                                                 <td>{{ $value['icon'] }}</td>
-                                                <td><a href="/admin/nanpa_place/detail?id={{ $value['id'] }}">詳細</a></td>
+                                                <td><a href="/admin/nanpa_place/admin_detail?id={{ $value['id'] }}">詳細</a></td>
+                                                <td><a href="/admin/nanpa_place/admin_delete?id={{ $value['id'] }}">削除</a></td>
                                             </tr>
                                         @endforeach
 

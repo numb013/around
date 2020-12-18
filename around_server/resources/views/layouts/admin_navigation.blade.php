@@ -32,15 +32,11 @@
                     <!-- /input-group -->
                 </li>
                 <li>
-                    <a href="/admin/home" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    <a href="/admin/nanpa_place/admin_index" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
                 </li>
                 <li>
-                    <a href="/admin/home"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    <a href="/admin/viewer/list" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
                 </li>
-                <li>
-                    <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                </li>
-
             </ul>
         </div>
     </div>

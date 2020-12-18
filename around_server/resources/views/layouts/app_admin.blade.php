@@ -94,51 +94,11 @@
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href="/admin/request_list/list" class=""><i class="fa fa-dashboard fa-fw"></i>リクエスト</a>
+                                    <a href="/admin/nanpa_place/admin_index" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/cast/list" class=""><i class="fa fa-dashboard fa-fw"></i>キャスト</a>
+                                    <a href="/admin/viewer/list" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
                                 </li>
-                                <li>
-                                    <a href="/admin/viewer/list" class=""><i class="fa fa-dashboard fa-fw"></i>視聴者</a>
-                                </li>
-                                <li>
-                                    <a href="/admin/company/list" class=""><i class="fa fa-dashboard fa-fw"></i>事務所</a>
-                                </li>
-                                <li>
-                                    <a href="/admin/notice/list" class=""><i class="fa fa-dashboard fa-fw"></i>お知らせ</a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-bar-chart-o fa-fw"></i>カテゴリー管理
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="nav nav-second-level">
-                                        <li>
-                                            <a href="/admin/category/cast_category_list">キャスト</a>
-                                        </li>
-                                        <li>
-                                            <a href="/admin/category/request_category_list">リクエスト</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-second-level -->
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-bar-chart-o fa-fw"></i>支払い管理
-                                        <span class="fa arrow"></span>
-                                    </a>
-                                    <ul class="nav nav-second-level">
-                                        <li>
-                                            <a href="/admin/request_list/list">Flot Charts</a>
-                                        </li>
-                                        <li>
-                                            <a href="/admin/request_list/list">Morris.js Charts</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-second-level -->
-                                </li>
-
                             </ul>
                         </div>
                     </div>

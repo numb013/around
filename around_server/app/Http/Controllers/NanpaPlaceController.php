@@ -45,7 +45,7 @@ class NanpaPlaceController extends Controller
     public function adminIndex()
     {
         //フォーム入力画ページのviewを表示
-        $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
+        $column = 'id,place_name,genre,longitude_latitude,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
         $list = NanpaPlace::select(DB::raw($column))
             ->where('open_flag', 1)
             ->get()->toArray();
@@ -99,9 +99,8 @@ class NanpaPlaceController extends Controller
 		$inputs['longitude'] = $longitude_latitude[0];
 		$inputs['latitude'] = $longitude_latitude[1];
 		NanpaPlace::create($inputs);
-        $inputs['search_word'] = "";
-        // return view("form_confirm",["input" => $input]);
-        return view('admin.nanpa_place.index', compact('inputs'));
+
+        return redirect('/admin/nanpa_place/admin_index');
     }
 
     public function adminDetail(Request $request)
@@ -123,7 +122,7 @@ class NanpaPlaceController extends Controller
         ->where('id', $id)
         ->first();
         // return view("form_confirm",["input" => $input]);
-        return view('admin.nanpa_place.detail', compact('detail'));
+        return view('admin.nanpa_place.edit', compact('detail'));
     }
 
     public function adminUpdate(Request $request)
@@ -148,7 +147,7 @@ class NanpaPlaceController extends Controller
     {
         $id = $request->input('id');
         NanpaPlace::where('id',$id)->delete();
-        return redirect('/admin/nanpa_place/index');
+        return redirect('/admin/nanpa_place/admin_index');
     }
 
 }
