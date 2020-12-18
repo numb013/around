@@ -28,7 +28,7 @@ class NanpaPlaceController extends Controller
         $validator = Validator::make($request->all(), [
             'place_name' => 'required',
             'longitude_latitude' => 'required',
-        ])->validate();        
+        ])->validate();
 
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
@@ -50,6 +50,58 @@ class NanpaPlaceController extends Controller
             ->where('open_flag', 1)
             ->get()->toArray();
         return view('/admin.nanpa_place.index', compact('list'));
+    }
+
+    public function adminSearch(Request $request)
+    {
+        $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
+        $query = NanpaPlace::select(DB::raw($column));
+        if (!empty($search_param['freeword'])) {
+            $freeword = $search_param['freeword'];
+            $query->where(function ($query) use ($freeword) {
+                if (!empty($freeword)) {
+                   $word = $this->double_explode(" ", "　", $freeword);
+                    for ($i=0; $i < count($word); $i++) {
+                        if ($i == 0) {
+                            $search_word = str_replace(array(" ", "　"), "", $word[$i]);
+                            $query->where('nanpa_place.place_name', 'like BINARY', "%$search_word%");
+                        } else {
+                            $search_word = str_replace(array(" ", "　"), "", $word[$i]);
+                            $query->orwhere('nanpa_place.place_name', 'like BINARY', "%$search_word%");
+                        }
+                        $search_word = str_replace(array(" ", "　"), "", $word[$i]);
+                        $query->orwhere('nanpa_place.place_name', 'like BINARY', "%$search_word%");
+                    }
+                }
+            });
+        }
+        $list = $query->get()->toArray();
+        return view('/admin.nanpa_place.index', compact('list'));
+
+    }
+
+    public function adminCreate(Request $request)
+    {
+        return view('admin.nanpa_place.create');
+    }
+
+    public function adminComplete(Request $request)
+    {
+        //バリデーションを実行（結果に問題があれば処理を中断してエラーを返す）
+        $validator = Validator::make($request->all(), [
+            'place_name' => 'required',
+            'longitude_latitude' => 'required',
+        ])->validate();        
+
+        //フォームから受け取ったすべてのinputの値を取得
+        $inputs = $request->all();
+		$longitude_latitude = explode(",", $inputs['longitude_latitude']);
+		$inputs['longitude'] = $longitude_latitude[0];
+		$inputs['latitude'] = $longitude_latitude[1];
+		NanpaPlace::create($inputs);
+        $inputs['search_word'] = "";
+        // return view("form_confirm",["input" => $input]);
+        return view('admin.nanpa_place.index', compact('inputs'));
     }
 
     public function adminDetail(Request $request)
@@ -94,11 +146,9 @@ class NanpaPlaceController extends Controller
 
     public function adminDelete(Request $request)
     {
+        $id = $request->input('id');
+        NanpaPlace::where('id',$id)->delete();
         return redirect('/admin/nanpa_place/index');
     }
-
-
-
-
 
 }

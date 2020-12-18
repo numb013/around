@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">キャスト編集</h1>
+            <h1 class="page-header">キャスト作成</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -14,27 +14,25 @@
                 <div class="panel-heading">
                     作成<a href="/admin/cast/list">戻る</a>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        {{-- エラーメッセージ --}}
-                        @if ($errors->any())
-                            <div class="alert alert-danger" style="margin: 20px;">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @if ($errors->any())
+                                <div style="color:red;">
                                 <ul>
                                     @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
+                                    <li>{{ $error }}</li>
                                     @endforeach
                                 </ul>
-                            </div>
-                        @endif
-
-                        <form role="form" method="post" action="{{action('NanpaPlaceController@adminUpdate')}}" class="form">
-                            {{ csrf_field() }}
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label>場所</label>
-                                    <input class="form-control" name="place_name" placeholder="名前" value="{{ $detail['place_name'] }}">
                                 </div>
-
+                                @endif
+                                <form method="post" action="{{action('NanpaPlaceController@adminComplete')}}" class="form">
+                                    {{ csrf_field() }}
+                                    <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>名前</label>
+                                        <input class="form-control" type="text" name="place_name" value="{{ old('place_name') }}" />
+                                    </div>
                                 <div class="form-group">
                                     <label>ジャンル</label>
                                     <select name="genre" class="form-control">
@@ -42,32 +40,22 @@
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
-                                </div>
-
+                                    </div>
                                 <div class="form-group">
                                     <label>緯度経度</label>
-                                    <input class="form-control" name="longitude_latitude" placeholder="緯度経度" value="{{ $detail['longitude_latitude'] }}">
-                                </div>
+                                        <input class="form-control" type="text" name="longitude_latitude" value="{{ old('longitude_latitude') }}" />
+                                    </div>
+
 
                                 <div class="form-group">
-                                    <label>公開</label>
-                                    <select name="open_flag" class="form-control">
-                                        @foreach (config('const.open_flag') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>割合</label>
-                                    <select name="authority" class="form-control">
+                                    <label>男女比率</label>
+                                    <select name="ratio" class="form-control">
                                         @foreach (config('const.ratio') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
-                            <div class="col-lg-6">
 
                                 <div class="form-group">
                                     <label>アイコン</label>
@@ -78,8 +66,10 @@
                                     </select>
                                 </div>
 
+
+                                <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>スタート時間</label>
+                                <label>時間帯</label>
                                     <select name="start_time" class="form-control">
                                         @foreach (config('const.time') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
@@ -87,7 +77,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>エンド時間</label>
+                                <label>時間帯</label>
                                     <select name="end_time" class="form-control">
                                         @foreach (config('const.time') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
@@ -95,8 +85,8 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>スタート時間</label>
+
+                                <label>年代</label>
                                     <select name="start_age_group" class="form-control">
                                         @foreach (config('const.age_group') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
@@ -104,7 +94,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>エンド時間</label>
+                                <label>年代</label>
                                     <select name="end_age_group" class="form-control">
                                         @foreach (config('const.age_group') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
@@ -112,17 +102,19 @@
                                     </select>
                                 </div>
 
+
+
                                 <div class="form-group">
-                                    <label>説明</label>
-                                    <textarea name="memo" class="form-control">{{ $detail['memo'] }}</textarea>
-                                </div>
-                                <input class="btn btn-primary" type="submit" value="送信" />
+                                    <label>メモ</label>
+                                        <textarea class="form-control" name="memo">{{ old('mamo') }}</textarea>
+                                    </div>
+                                    </div>
+                                    <input class="btn btn-primary" type="submit" value="送信" />
+
+                                </form>
                             </div>
-                        </form>
-                        <!-- /.col-lg-6 (nested) -->
+                        </div>
                     </div>
-                    <!-- /.row (nested) -->
-                </div>
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
