@@ -86,7 +86,7 @@ Log::debug($request->all());
 
     public function adminList(Request $request)
     {
-        $nanpa_place_id = $request->input('nanpa_place_id');
+        $nanpa_place_id = $request->input('id');
         $column = 'id,place_name,genre,longitude,latitude,open_flag,ratio,icon,start_time,end_time,start_age_group,end_age_group,memo';
         $nanpa_place = NanpaPlace::select(DB::raw($column))
             ->where('id', $nanpa_place_id)
@@ -111,19 +111,7 @@ Log::debug($request->all());
         $list['nanpa_place'] = $nanpa_place;
         $list['comment_post_list'] = $comment_post_list;
         //フォーム入力画ページのviewを表示
-        return view('admin.comment_post.index', compact('list'));
-    }
-
-
-    public function adminDelete(Request $request)
-    {
-        $id = $request->input('id');
-        $column = '*';
-        $detail = CommentPost::select(DB::raw($column))
-        ->where('id', $id)
-        ->first();
-        // return view("form_confirm",["input" => $input]);
-        return view('admin.comment_post.detail', compact('detail'));
+        return view('admin.comment_post.list', compact('list'));
     }
 
     public function adminEdit(Request $request)
@@ -133,8 +121,11 @@ Log::debug($request->all());
         $detail = CommentPost::select(DB::raw($column))
         ->where('id', $id)
         ->first();
-        // return view("form_confirm",["input" => $input]);
-        return view('admin.comment_post.edit', compact('edit'));
+
+Log::debug("SSSSSSSSSSSSSSSSS");
+Log::debug($detail);
+
+        return view('admin.comment_post.edit', compact('detail'));
     }
 
     public function adminUpdate(Request $request)

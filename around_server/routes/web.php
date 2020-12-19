@@ -49,7 +49,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 
     Route::get('/comment_post/admin_index','CommentPostController@adminIndex');
     Route::get('/comment_post/admin_list','CommentPostController@adminList');
-    Route::post('/comment_post/admin_edit', 'CommentPostController@adminEdit');
+    Route::get('/comment_post/admin_edit', 'CommentPostController@adminEdit');
     Route::post('/comment_post/admin_update', 'CommentPostController@adminUpdate');
     Route::post('/comment_post/admin_delete', 'CommentPostController@adminDelete');
 });

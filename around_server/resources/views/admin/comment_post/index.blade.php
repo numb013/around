@@ -54,8 +54,8 @@
                                     <tr>
                                         <th>場所</th>
                                         <th>ジャンル</th>
-                                        <th>緯度経度</th>
                                         <th>アイコン</th>                                        
+                                        <th>コメント数</th>                                        
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -64,9 +64,9 @@
                                         @foreach ($list as $key => $value)
                                             <tr>
                                                 <td>{{ $value['place_name'] }}</td>
-                                                <td>{{ $value['genre'] }}</td>
-                                                <td>{{ $value['longitude_latitude'] }}</td>
-                                                <td>{{ $value['icon'] }}</td>
+                                                <td>{{ config('const.genre')[$value['genre']] }}</td>
+                                                <td>{{ config('const.icon')[$value['icon']] }}</td>
+                                                <td></td>
                                                 <td>
                                                     <a href="/admin/comment_post/admin_list?id={{ $value['id'] }}">詳細</a>
                                                 </td>

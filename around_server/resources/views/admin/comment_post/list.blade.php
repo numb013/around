@@ -65,9 +65,8 @@
                                     <td>{{ $value['name'] }}</td>
                                     <td>{{ $value['comment'] }}</td>
                                     <td>{{ $value['created_at'] }}</td>
-                                    <td><a href="/admin/comment_post/detail?id={{ $value['id'] }}">詳細</a></td>
-                                    <td><a href="/admin/comment_post/edit?id={{ $value['id'] }}">編集</a></td>
-                                    <td><a href="/admin/comment_post/delete?id={{ $value['id'] }}">削除</a></td>
+                                    <td><a href="{{ url('/admin/comment_post/admin_edit?id=')}}{{ $value['id'] }}">編集</a></td>
+                                    <td><a href="{{ url('/admin/comment_post/admin_delete?id=')}}{{ $value['id'] }}">削除</a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
