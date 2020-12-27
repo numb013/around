@@ -27,7 +27,6 @@
         <script type="text/javascript">
     
 var param = location.search;
-console.log("aaaaaaaaaaaa");
 console.log(param);
 
 
@@ -48,6 +47,8 @@ console.log(param);
                     {
                         // 取得したデータの整理
                         var data = position.coords;
+                        console.log("aaaaaaaaaaaa");
+                        console.log(data);
                         // データの整理
                         var lat_position = data.latitude;
                         var lng_position = data.longitude;
