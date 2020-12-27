@@ -79,16 +79,14 @@ if( navigator.geolocation )
 
 			// HTMLに書き出し
 			document.getElementById("result").innerHTML = errorMessage;
-		} ,
-
+		},
 		// [第3引数] オプション
 		{
 			"enableHighAccuracy": false,
 			"timeout": 8000,
 			"maximumAge": 2000,
 		}
-
-	) ;
+	);
 }
 
 // 対応していない場合
@@ -130,6 +128,11 @@ else
 
         <script type="text/javascript">
     
+var param = location.search;
+console.log("aaaaaaaaaaaa");
+console.log(param);
+
+
             var map;
             var marker = [];
             var infoWindow = [];
@@ -137,13 +140,52 @@ else
 
             console.log(markerData);
 
+
+
+
+
+	// 現在地を取得
+	navigator.geolocation.getCurrentPosition(
+        // [第1引数] 取得に成功した場合の関数
+        function( position )
+        {
+            // 取得したデータの整理
+            var data = position.coords ;
+            // データの整理
+            var lat = data.latitude ;
+            var lng = data.longitude ;
+        },
+
+        // [第2引数] 取得に失敗した場合の関数
+        function( error )
+        {
+        }
+    );
+
+
+
+
+
+
+
+
             function initMap() {
                 // 地図の作成
-                var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
-                map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
-                    center: mapLatLng, // 地図の中心を指定
-                    zoom: 15 // 地図のズームを指定
-                });
+                if (param) {
+                    var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+                    map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+                        center: mapLatLng, // 地図の中心を指定
+                        zoom: 15 // 地図のズームを指定
+                    });
+                } else {
+                    alert("tetetetetete");
+                    var mapLatLng = new google.maps.LatLng({lat: lat, lng: lng}); // 緯度経度のデータ作成
+                    map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+                        center: mapLatLng, // 地図の中心を指定
+                        zoom: 15 // 地図のズームを指定
+                    });
+                }
+
                 // マーカー毎の処理
                 for (var i = 0; i < markerData.length; i++) {
                     markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
