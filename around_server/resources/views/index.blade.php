@@ -62,7 +62,7 @@ console.log(param);
         // [第2引数] 取得に失敗した場合の関数
         function( error )
         {
-            console.log("取得に失敗した場合の関数");
+            alert("取得に失敗した場合の関数");
         }
     );
 
