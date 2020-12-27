@@ -48,21 +48,21 @@ ul.icons li {
                         <div class="panel-body">
                             <ul class="icons labeled">
                                 <li>
-                                    <span class="icon solid fa fa-camera-retro">
+                                    <span class="icon solid fa fa-star-half">
                                         <span class="">
                                         男女比 : {{ $list["nanpa_place"]["ratio"] }}
                                         </span>
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="icon solid fa fa-camera-retro">
+                                    <span class="icon solid fa fa-clock-o">
                                         <span class="">
                                         時間帯 : {{ $list["nanpa_place"]["time"] }}
                                         </span>
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="icon solid fa fa-camera-retro">
+                                    <span class="icon solid fa fa-address-card-o">
                                         <span class="">
                                         年代 : {{ $list["nanpa_place"]["age_group"] }}
                                         </span>
