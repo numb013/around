@@ -28,8 +28,7 @@
     
 var param = location.search;
 console.log(param);
-var latitude = 0;
-var longitude = 0;
+
 
 
             console.log("1111111111");
@@ -41,9 +40,10 @@ var longitude = 0;
                 console.log("44444444444");
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
-                if (param == null) {
+                if (!param) {
                     if(latitude){   //変数latitudeに値が入ってた時
                         console.log("5555555555555");
+                        alert("5555555555555");
                         getmap = confirm("位置情報の取得を開始します");//取得開始のアラート
                         if ( getmap == true ){
                             location.href = "/?latitudecd=" + latitude + "&longitudecd=" + longitude;//取得したらリダイレクト
