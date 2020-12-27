@@ -31,7 +31,7 @@ console.log(param);
 
 
 
-function getElement() {
+
     console.log("1111111111");
     var element=document.getElementById("test")
     console.log("2222222222");
@@ -53,7 +53,7 @@ function getElement() {
             alert("位置情報が取得できません");
         }
     }
-};
+
 
 
 
