@@ -30,6 +30,35 @@ var param = location.search;
 console.log(param);
 
 
+
+function getElement() {
+    var element=document.getElementById("test")
+
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    function successCallback(position) {    //成功時の処理
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        console.log(latitude);
+        console.log(longitude);
+
+        if(latitude){   //変数latitudeに値が入ってた時
+            getmap = confirm("位置情報の取得を開始します");//取得開始のアラート
+        }
+        function errorCallback(error) { //失敗時の処理
+            alert("位置情報が取得できません");
+        }
+    }
+};
+
+
+
+
+
+
+
+
+
             var map;
             var marker = [];
             var infoWindow = [];
