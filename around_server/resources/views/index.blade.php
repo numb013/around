@@ -32,10 +32,13 @@ console.log(param);
 
 
 function getElement() {
+    console.log("1111111111");
     var element=document.getElementById("test")
-
+    console.log("2222222222");
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    console.log("33333333333");
     function successCallback(position) {    //成功時の処理
+        console.log("44444444444");
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
@@ -43,6 +46,7 @@ function getElement() {
         console.log(longitude);
 
         if(latitude){   //変数latitudeに値が入ってた時
+            console.log("5555555555555");
             getmap = confirm("位置情報の取得を開始します");//取得開始のアラート
         }
         function errorCallback(error) { //失敗時の処理
