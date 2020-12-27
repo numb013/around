@@ -61,7 +61,6 @@
                     center: mapLatLng, // 地図の中心を指定
                     zoom: 15 // 地図のズームを指定
                 });
-
                 // マーカー毎の処理
                 for (var i = 0; i < markerData.length; i++) {
                     markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
@@ -89,9 +88,17 @@
                 });
             }
         </script>
-        <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script> -->
         <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPgIbWuxCywwM9Pofaf05aF9iZAoe84H8&callback=initMap">
         </script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXSC451QLT"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KXSC451QLT');
+        </script>        
     </body>
 </html>
