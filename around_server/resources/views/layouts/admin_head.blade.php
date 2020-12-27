@@ -4,7 +4,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Startmin - Bootstrap Admin Theme</title>
+        <title>ナンパマップ　管理画面</title>
 
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
