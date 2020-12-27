@@ -47,6 +47,15 @@ var longitude = 0;
                 if(latitude){   //変数latitudeに値が入ってた時
                     console.log("5555555555555");
                     getmap = confirm("位置情報の取得を開始します");//取得開始のアラート
+
+
+                    if ( getmap == true ){
+                        location.href = "/?latitudecd=" + latitude + "&longitudecd=" + longitude;//取得したらリダイレクト
+                    }else{
+                        alert("またのご利用お待ちしています。");//取得開始を許可しない場合のアラート
+                    }
+
+
                 }
             }
             function errorCallback(error) { //失敗時の処理
