@@ -38,82 +38,126 @@ console.log(param);
             console.log(markerData);
 
 
-            if( navigator.geolocation )
-            {
-                // 現在地を取得
-                navigator.geolocation.getCurrentPosition(
-                    // [第1引数] 取得に成功した場合の関数
-                    function( position )
-                    {
-                        // 取得したデータの整理
-                        var data = position.coords;
-                        console.log("aaaaaaaaaaaa");
-                        console.log(data);
-                        // データの整理
-                        var lat_position = data.latitude;
-                        var lng_position = data.longitude;
-                        alert(lat_position);
-                        alert(lng_position);
-                    },
-
-                    // [第2引数] 取得に失敗した場合の関数
-                    function( error )
-                    {
-                        alert("取得に失敗した場合の関数");
-                    }
-                );
-            } else {
-                console.log("NGNGNGNGNGNGNGG");
-            }
-
-
-
-
-
-
-
-
-
-
 
             function initMap() {
-                // 地図の作成
-                if (param) {
-                    var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
-                    map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
-                        center: mapLatLng, // 地図の中心を指定
-                        zoom: 15 // 地図のズームを指定
-                    });
+
+
+
+
+                if( navigator.geolocation )
+                {
+                    // 現在地を取得
+                    navigator.geolocation.getCurrentPosition(
+                        // [第1引数] 取得に成功した場合の関数
+                        function( position )
+                        {
+                            if (param == null) {
+                                // 取得したデータの整理
+                                var data = position.coords;
+                                // データの整理
+                                var lat_position = data.latitude;
+                                var lng_position = data.longitude;
+
+
+                                var mapLatLng = new google.maps.LatLng({lat: lat_position, lng: lng_position}); // 緯度経度のデータ作成
+                                map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+                                    center: mapLatLng, // 地図の中心を指定
+                                    zoom: 15 // 地図のズームを指定
+                                });
+
+                                // マーカー毎の処理
+                                for (var i = 0; i < markerData.length; i++) {
+                                    markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+                                    marker[i] = new google.maps.Marker({ // マーカーの追加
+                                        position: markerLatLng, // マーカーを立てる位置を指定
+                                        map: map // マーカーを立てる地図を指定
+                                    });{{ url('/admin/viewer/list') }}
+                                    infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+                                        content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
+                                    });
+                                    markerEvent(i); // マーカーにクリックイベントを追加
+                                }
+                                for (var i = 0; i < markerData.length; i++) {
+                                    marker[i].setOptions({// TAM 東京のマーカーのオプション設定
+                                        icon: {
+                                            url: markerData[i]['icon']// マーカーの画像を変更
+                                        }
+                                    });
+                                }
+                            } else {
+                                // 地図の作成
+                                var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+                                map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+                                    center: mapLatLng, // 地図の中心を指定
+                                    zoom: 15 // 地図のズームを指定
+                                });
+ 
+                                // マーカー毎の処理
+                                for (var i = 0; i < markerData.length; i++) {
+                                    markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+                                    marker[i] = new google.maps.Marker({ // マーカーの追加
+                                        position: markerLatLng, // マーカーを立てる位置を指定
+                                        map: map // マーカーを立てる地図を指定
+                                    });{{ url('/admin/viewer/list') }}
+                                    infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+                                        content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
+                                    });
+                                    markerEvent(i); // マーカーにクリックイベントを追加
+                                }
+                                for (var i = 0; i < markerData.length; i++) {
+                                    marker[i].setOptions({// TAM 東京のマーカーのオプション設定
+                                        icon: {
+                                            url: markerData[i]['icon']// マーカーの画像を変更
+                                        }
+                                    });
+                                }
+                            }
+
+
+                        },
+
+                        // [第2引数] 取得に失敗した場合の関数
+                        function( error )
+                        {
+                            // 地図の作成
+                            // if (param) {
+                                var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+                                map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+                                    center: mapLatLng, // 地図の中心を指定
+                                    zoom: 15 // 地図のズームを指定
+                                });
+                            // }
+
+                            // マーカー毎の処理
+                            for (var i = 0; i < markerData.length; i++) {
+                                markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+                                marker[i] = new google.maps.Marker({ // マーカーの追加
+                                    position: markerLatLng, // マーカーを立てる位置を指定
+                                    map: map // マーカーを立てる地図を指定
+                                });{{ url('/admin/viewer/list') }}
+                                infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+                                    content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
+                                });
+                                markerEvent(i); // マーカーにクリックイベントを追加
+                            }
+                            for (var i = 0; i < markerData.length; i++) {
+                                marker[i].setOptions({// TAM 東京のマーカーのオプション設定
+                                    icon: {
+                                        url: markerData[i]['icon']// マーカーの画像を変更
+                                    }
+                                });
+                            }
+                        }
+                    );
                 } else {
-                    alert("111111");
-                    alert(lat_position);
-                    alert(lng_position);
-                    var mapLatLng = new google.maps.LatLng({lat: lat_position, lng: lng_position}); // 緯度経度のデータ作成
-                    map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
-                        center: mapLatLng, // 地図の中心を指定
-                        zoom: 15 // 地図のズームを指定
-                    });
+                    console.log("NGNGNGNGNGNGNGG");
                 }
 
-                // マーカー毎の処理
-                for (var i = 0; i < markerData.length; i++) {
-                    markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
-                    marker[i] = new google.maps.Marker({ // マーカーの追加
-                        position: markerLatLng, // マーカーを立てる位置を指定
-                        map: map // マーカーを立てる地図を指定
-                    });{{ url('/admin/viewer/list') }}
-                    infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
-                        content: '<div class="sample"><p><a href="/comment_post?nanpa_place_id=' + markerData[i]['id'] + '" >' + markerData[i]['name'] + '</a></p><ul><li>男女比：' + markerData[i]['ratio'] + '</li><li>時間帯：' + markerData[i]['time'] + '</li><li>年齢層：' + markerData[i]['age_group'] + '</li></ul></div>' // 吹き出しに表示する内容
-                    });
-                    markerEvent(i); // マーカーにクリックイベントを追加
-                }
-                for (var i = 0; i < markerData.length; i++) {
-                    marker[i].setOptions({// TAM 東京のマーカーのオプション設定
-                        icon: {
-                            url: markerData[i]['icon']// マーカーの画像を変更
-                        }
-                    });
-                }
+
+
+
+
+                
             }
             // マーカーにクリックイベントを追加
             function markerEvent(i) {
