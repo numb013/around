@@ -17,7 +17,7 @@
                     <a href="/admin/nanpa_place/list">戻る</a>
                     <a href="/admin/nanpa_place/admin_create">作成</a>
                     <a href="/admin/nanpa_place/admin_edit?id={{ $detail['id'] }}">編集</a>
-                    <a href="/admin/nanpa_place/admin_delete?id={{ $value['id'] }}">削除</a>
+                    <a href="/admin/nanpa_place/admin_delete?id={{ $detail['id'] }}">削除</a>
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
