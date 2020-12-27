@@ -39,7 +39,12 @@ console.log(param);
             console.log(markerData);
 
 
-
+            if( navigator.geolocation )
+            {
+                console.log("OKOKOKOKOKOKOKOK");
+            } else {
+                console.log("NGNGNGNGNGNGNGG");
+            }
 
 
 	// 現在地を取得
