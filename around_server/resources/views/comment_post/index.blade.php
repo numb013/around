@@ -29,11 +29,11 @@ ul.icons li {
 
         <div class="flex-center position-ref full-height">
             <div class="content">
-<!--                 <div id="banner" class="banner_center">
+                <div id="banner" class="banner_center">
                 @section('add_banner')
                     @include('layouts.add_banner')  
                 @show
-                </div> -->
+                </div>
 
 
                 @section('header')
