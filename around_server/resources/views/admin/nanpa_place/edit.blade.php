@@ -12,7 +12,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    作成<a href="/admin/nanpa_place/index">戻る</a>
+                    作成<a href="/admin/nanpa_place/admin_index">戻る</a>
                 </div>
                 <div class="panel-body">
                     <div class="row">

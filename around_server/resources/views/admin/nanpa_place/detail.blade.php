@@ -14,7 +14,7 @@
                 <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i>
                     未完了リクエスト
-                    <a href="/admin/nanpa_place/list">戻る</a>
+                    <a href="/admin/nanpa_place/admin_index">戻る</a>
                     <a href="/admin/nanpa_place/admin_create">作成</a>
                     <a href="/admin/nanpa_place/admin_edit?id={{ $detail['id'] }}">編集</a>
                     <a href="/admin/nanpa_place/admin_delete?id={{ $detail['id'] }}">削除</a>
