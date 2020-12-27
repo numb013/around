@@ -28,6 +28,9 @@
     
 var param = location.search;
 console.log(param);
+var latitude = 0;
+var longitude = 0;
+
 
             console.log("1111111111");
             var element=document.getElementById("test")
