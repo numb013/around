@@ -76,7 +76,7 @@ console.log(param);
                         zoom: 15 // 地図のズームを指定
                     });
                 } else {
-                    alert("tetetetetete");
+                    alert("111111");
                     alert(lat);
                     alert(lng);
                     var mapLatLng = new google.maps.LatLng({lat: lat, lng: lng}); // 緯度経度のデータ作成
