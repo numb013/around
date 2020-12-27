@@ -48,15 +48,16 @@ console.log(param);
         function( position )
         {
             // 取得したデータの整理
-            var data = position.coords ;
+            var data = position.coords;
             // データの整理
-            var lat_position = data.latitude ;
-            var lng_position = data.longitude ;
+            var lat_position = data.latitude;
+            var lng_position = data.longitude;
         },
 
         // [第2引数] 取得に失敗した場合の関数
         function( error )
         {
+            console.log("取得に失敗した場合の関数");
         }
     );
 
