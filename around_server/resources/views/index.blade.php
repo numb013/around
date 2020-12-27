@@ -39,8 +39,7 @@ console.log(param);
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
 
-                alert(latitude);
-                alert(longitude);
+
 
                 if(latitude){   //変数latitudeに値が入ってた時
                     console.log("5555555555555");
@@ -59,6 +58,8 @@ console.log(param);
             console.log(markerData);
             function initMap() {
                 // 地図の作成
+                alert(latitude);
+                alert(longitude);
                 var mapLatLng = new google.maps.LatLng({lat: latitude, lng: longitude}); // 緯度経度のデータ作成
                 map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
                     center: mapLatLng, // 地図の中心を指定
