@@ -41,30 +41,32 @@ console.log(param);
 
             if( navigator.geolocation )
             {
-                console.log("OKOKOKOKOKOKOKOK");
+                // 現在地を取得
+                navigator.geolocation.getCurrentPosition(
+                    // [第1引数] 取得に成功した場合の関数
+                    function( position )
+                    {
+                        // 取得したデータの整理
+                        var data = position.coords;
+                        // データの整理
+                        var lat_position = data.latitude;
+                        var lng_position = data.longitude;
+                        alert(lat_position);
+                        alert(lng_position);
+                    },
+
+                    // [第2引数] 取得に失敗した場合の関数
+                    function( error )
+                    {
+                        alert("取得に失敗した場合の関数");
+                    }
+                );
             } else {
                 console.log("NGNGNGNGNGNGNGG");
             }
 
 
-	// 現在地を取得
-	navigator.geolocation.getCurrentPosition(
-        // [第1引数] 取得に成功した場合の関数
-        function( position )
-        {
-            // 取得したデータの整理
-            var data = position.coords;
-            // データの整理
-            var lat_position = data.latitude;
-            var lng_position = data.longitude;
-        },
 
-        // [第2引数] 取得に失敗した場合の関数
-        function( error )
-        {
-            alert("取得に失敗した場合の関数");
-        }
-    );
 
 
 
