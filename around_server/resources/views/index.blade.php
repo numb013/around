@@ -65,20 +65,11 @@ var longitude = 0;
             console.log(markerData);
             function initMap() {
                 // 地図の作成
-                alert(latitude);
-                alert(longitude);
-                var mapLatLng = new google.maps.LatLng({lat: latitude, lng: longitude}); // 緯度経度のデータ作成
+                var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
                 map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
                     center: mapLatLng, // 地図の中心を指定
                     zoom: 15 // 地図のズームを指定
                 });
-
-
-                // var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
-                // map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
-                //     center: mapLatLng, // 地図の中心を指定
-                //     zoom: 15 // 地図のズームを指定
-                // });
 
                 // マーカー毎の処理
                 for (var i = 0; i < markerData.length; i++) {

@@ -45,6 +45,18 @@ class TopController extends Controller
             $data .= "lng: " . $longitude_latitude[1] . ",";
             $data .= "icon: ''";
             $data .= '},';
+        } elseif (!empty($request->input('latitudecd'))) {
+            $inputs['latitudecd'] = $request->input('latitudecd');
+            $inputs['longitudecd'] = $request->input('longitudecd');
+            $pref = 0;
+            $prefecter = config('const.pref')[$pref];
+            $longitude_latitude = explode(",", $prefecter['longitude_latitude']);
+            $data = '{';
+            $data .= "name:'',";
+            $data .= "lat: " . $request->input('latitudecd') . ",";
+            $data .= "lng: " . $request->input('longitudecd') . ",";
+            $data .= "icon: ''";
+            $data .= '},';
         } elseif (!empty($request->input('search_word'))) {
             $inputs['search_word'] = $request->input('search_word');
             $longitude_latitude = $this->wordSearch($request->input('search_word'));
