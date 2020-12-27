@@ -49,11 +49,10 @@ console.log(param);
             console.log("5555555555555");
             getmap = confirm("位置情報の取得を開始します");//取得開始のアラート
         }
-        function errorCallback(error) { //失敗時の処理
-            alert("位置情報が取得できません");
-        }
     }
-
+    function errorCallback(error) { //失敗時の処理
+        alert("位置情報が取得できません");
+    }
 
 
 
