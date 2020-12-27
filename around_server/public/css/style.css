@@ -101,6 +101,8 @@ z-index: 999;
 }
 .banner_center {
     margin: 0 auto;
+    height: 50px;
+    display: block;
 }
 /*transition ver.*/
 

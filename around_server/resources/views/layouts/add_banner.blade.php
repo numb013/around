@@ -1,6 +1,9 @@
 <a href="https://px.a8.net/svt/ejp?a8mat=3BT05E+198ZIY+HCG+65U41" rel="nofollow">
-<img border="0" width="468" height="60" alt="" src="https://www21.a8.net/svt/bgt?aid=201227522076&wid=002&eno=01&mid=s00000002248001035000&mc=1"></a>
+<img border="0" width="100%" height="50px" alt="" src="https://www21.a8.net/svt/bgt?aid=201227522076&wid=002&eno=01&mid=s00000002248001035000&mc=1"></a>
 <img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=3BT05E+198ZIY+HCG+65U41" alt="">
+
+
+
 
 <script type="text/javascript">
     var targetId=document.getElementById("banner"),//動かすタグのid
