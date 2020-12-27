@@ -39,8 +39,8 @@ console.log(param);
                 var latitude = position.coords.latitude;
                 var longitude = position.coords.longitude;
 
-                console.log(latitude);
-                console.log(longitude);
+                alert(latitude);
+                alert(longitude);
 
                 if(latitude){   //変数latitudeに値が入ってた時
                     console.log("5555555555555");
