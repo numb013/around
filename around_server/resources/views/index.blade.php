@@ -52,6 +52,7 @@ console.log(param);
                         function( position )
                         {
                             if (param == null) {
+                                alert("取得取得取得取得取得取得取得取得取得取得");
                                 // 取得したデータの整理
                                 var data = position.coords;
                                 // データの整理
