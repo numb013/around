@@ -50,8 +50,8 @@ console.log(param);
             // 取得したデータの整理
             var data = position.coords ;
             // データの整理
-            var lat = data.latitude ;
-            var lng = data.longitude ;
+            var lat_position = data.latitude ;
+            var lng_position = data.longitude ;
         },
 
         // [第2引数] 取得に失敗した場合の関数
@@ -77,9 +77,9 @@ console.log(param);
                     });
                 } else {
                     alert("111111");
-                    alert(lat);
-                    alert(lng);
-                    var mapLatLng = new google.maps.LatLng({lat: lat, lng: lng}); // 緯度経度のデータ作成
+                    alert(lat_position);
+                    alert(lng_position);
+                    var mapLatLng = new google.maps.LatLng({lat: lat_position, lng: lng_position}); // 緯度経度のデータ作成
                     map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
                         center: mapLatLng, // 地図の中心を指定
                         zoom: 15 // 地図のズームを指定
