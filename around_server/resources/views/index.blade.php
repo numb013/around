@@ -87,18 +87,6 @@
                     infoWindow[i].open(map, marker[i]); // 吹き出しの表示
                 });
             }
-        </script>
-        <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPgIbWuxCywwM9Pofaf05aF9iZAoe84H8&callback=initMap">
-        </script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXSC451QLT"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-KXSC451QLT');
-        </script>        
+        </script>    
     </body>
 </html>
