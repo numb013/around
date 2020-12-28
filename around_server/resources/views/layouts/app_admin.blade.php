@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>NANPA MAP</title>
+        <title>NANPAMAP</title>
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
         <!-- Custom CSS -->
@@ -52,7 +52,7 @@
                 <!-- Navigation -->
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/admin">NANPA MAP</a>
+                        <a class="navbar-brand" href="/admin">NANPAMAP</a>
                     </div>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
@@ -87,14 +87,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <!-- /.navbar-top-links -->
-
-
                     <div class="navbar-default sidebar" role="navigation">
                         <div class="sidebar-nav navbar-collapse">
                             <ul class="nav" id="side-menu">
                                 <li>
-                                    <a href="{{ url('/admin/nanpa_place/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
+                                    <a href="{{ url('/admin/nanpa_place/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット!!</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('/admin/comment_post/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
@@ -105,19 +102,11 @@
                 </nav>
                 <div id="page-wrapper">
                     @yield('content')
-                    <!-- /.container-fluid -->
                 </div>
-            <!-- /#page-wrapper -->
             @else
                 @yield('content')
             @endif
-
         </div>
-        <!-- /#wrapper -->
-
-
-
-
     </body>
 </html>
 

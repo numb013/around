@@ -11,16 +11,18 @@
         <span class="icon-bar"></span>
     </button>
 
+
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
-                    <a href="{{ url('/admin/nanpa_place/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット</a>
+                    <a href="{{ url('/admin/nanpa_place/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>ナンパスポット!</a>
                 </li>
                 <li>
-                    <a href="{{ url('/admin/viewer/list') }}" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
+                    <a href="{{ url('/admin/comment_post/admin_index') }}" class=""><i class="fa fa-dashboard fa-fw"></i>コメント</a>
                 </li>
             </ul>
         </div>
     </div>
+
 </nav>
