@@ -22,7 +22,7 @@ return [
         '17' => ['name' => "山梨",  'longitude_latitude' => "35.66389,138.56833"],
         '18' => ['name' => "静岡",  'longitude_latitude' => "34.97694,138.38306"],
         '19' => ['name' => "岐阜",  'longitude_latitude' => "35.39111,136.72222"],
-        '20' => ['name' => "愛知",  'longitude_latitude' => "35.18028,136.90667"],
+        '20' => ['name' => "愛知",  'longitude_latitude' => "35.1701919,136.9042542"],
         '21' => ['name' => "富山",  'longitude_latitude' => "36.69528,137.21139"],
         '22' => ['name' => "石川",  'longitude_latitude' => "36.59444,136.62556"],
         '23' => ['name' => "福井",  'longitude_latitude' => "36.06528,136.22194"],
