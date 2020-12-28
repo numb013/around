@@ -39,8 +39,12 @@
                                     <div class="col-lg-6">
                                 <div class="form-group">
                                     <label>名前</label>
-                                        <input class="form-control" type="text" name="place_name" value="{{ old('place_name') }}" />
-                                    </div>
+                                    <input class="form-control" type="text" name="place_name" value="{{ old('place_name') }}" />
+                                </div>
+                                <div class="form-group">
+                                    <label>説明</label>
+                                    <textarea class="form-control" name="memo">{{ old('memo') }}</textarea>
+                                </div>
                                 <div class="form-group">
                                     <label>ジャンル</label>
                                         <select name="genre" class="form-control">
@@ -99,11 +103,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                <div class="form-group">
-                                    <label>メモ</label>
-                                        <textarea class="form-control" name="body">{{ old('body') }}</textarea>
-                                    </div>
-                                    </div>
+                                </div>
                                     <input class="btn btn-primary" type="submit" value="送信" />
                                 </form>
                             </div>

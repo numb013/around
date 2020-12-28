@@ -39,7 +39,7 @@ ul.icons li {
                 <div class="panel">
                     <div class="panel-heading" style="padding: 0px;">
                         <h1>{{ $list["nanpa_place"]["place_name"] }}</h1>
-                        <p>{{ $list["nanpa_place"]["genre"] }}</p>
+                        <p>{{ $list["nanpa_place"]["genre"] }}</p>                        
                         <div class="panel-body">
                             <ul class="icons labeled">
                                 <li>
@@ -65,6 +65,7 @@ ul.icons li {
                                 </li>
                             </ul>
                         </div>
+                        <p style="padding: 0 15px;">{!! nl2br(e($list["nanpa_place"]["memo"])) !!}</p>
                     </div>
 
                     <div class="panel panel-default" style="margin: 20px; text-align: left;">
