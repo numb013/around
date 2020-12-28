@@ -45,7 +45,7 @@
                 }
             }
             function errorCallback(error) { //失敗時の処理
-                alert("位置情報が取得できません");
+                // alert("位置情報が取得できません");
             }
 
             var map;
