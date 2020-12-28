@@ -116,6 +116,7 @@
                                     <label>説明</label>
                                     <textarea name="memo" class="form-control">{{ $detail['memo'] }}</textarea>
                                 </div>
+                                <input type="hidden" name="id" value="{{ $detail['id'] }}">
                                 <input class="btn btn-primary" type="submit" value="送信" />
                             </div>
                         </form>

@@ -42,6 +42,7 @@
                                     <label>作成日</label>
                                     <input class="form-control" name="created_at" placeholder="作成日" value="{{ $detail['created_at'] }}">
                                 </div>
+                                <input type="hidden" name="id" value="{{ $detail['id'] }}">
                                 <input class="btn btn-primary" type="submit" value="送信" />
                             </div>
                         </form>
