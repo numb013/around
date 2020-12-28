@@ -79,14 +79,14 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>時間帯</label>
                                             <select name="end_time" class="form-control">
                                                 @foreach (config('const.time') as $key => $value)
                                                     <option value="{{ $key }}">{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <label>年代</label>
+                                        <div class="form-group">
+                                            <label>年代</label>
                                             <select name="start_age_group" class="form-control">
                                                 @foreach (config('const.age_group') as $key => $value)
                                                     <option value="{{ $key }}">{{ $value }}</option>
@@ -94,18 +94,17 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>年代</label>
                                             <select name="end_age_group" class="form-control">
                                                 @foreach (config('const.age_group') as $key => $value)
                                                     <option value="{{ $key }}">{{ $value }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
-                                        <input class="btn btn-primary" type="submit" value="送信" />
-                                        </form>
-                                    </div>
-                                </div>
+                                    <input class="btn btn-primary" type="submit" value="送信" />
+                                </form>
                             </div>
+                        </div>
+                    </div>
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
