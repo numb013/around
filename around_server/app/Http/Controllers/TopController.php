@@ -91,7 +91,6 @@ class TopController extends Controller
             $markerData .= "ratio: '" . config('const.ratio')[$value["ratio"]] . "',";
             $markerData .= "time: '" . config('const.time')[$value["start_time"]] . '~' . config('const.time')[$value["end_time"]] . "',";
             $markerData .= "age_group: '" . config('const.age_group')[$value["start_age_group"]] . '~' . config('const.age_group')[$value["end_age_group"]] . "',";
-            $markerData .= "memo: '" . $value["memo"] . "'";
             $markerData .= '},';
         }
         $markerData1 = $markerData . ']';
