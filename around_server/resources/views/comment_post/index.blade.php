@@ -7,7 +7,6 @@
     </head>
     <body>
 
-
 <style>
 
 ul.icons {
@@ -26,7 +25,6 @@ ul.icons li {
 }
 </style>
 
-
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div id="banner" class="banner_center">
@@ -34,12 +32,9 @@ ul.icons li {
                     @include('layouts.add_banner')  
                 @show
                 </div>
-
-
                 @section('header')
                     @include('layouts.header')  
                 @show
-
                 <br>
                 <div class="panel">
                     <div class="panel-heading" style="padding: 0px;">

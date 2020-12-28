@@ -28,7 +28,7 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 20%">#</th>
-                                        <th>Date</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -46,7 +46,7 @@
                                     </tr>
                                     <tr>
                                         <td>公開/非公開</td>
-                                        <td>{{ $detail['open_flag'] }}</td>
+                                        <td>{{ config('const.open_flag')[$detail['open_flag']] }}</td>
                                     </tr>
                                     <tr>
                                         <td>割合</td>

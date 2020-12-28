@@ -24,9 +24,9 @@
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Amount</th>
+                                        <th>スポット</th>
+                                        <th>ジャンル</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -35,8 +35,8 @@
                                         <tr>
                                             <td>{{ $value["id"] }} </td>
                                             <td>{{ $value["place_name"] }}</td>
-                                            <td>{{ $value["place_name"] }}</td>
-                                            <td><a href="/admin/nanpa_place/admin_detail?id={{ $value['id'] }}">編集</a></td>
+                                            <td>{{ config('const.genre')[$value['genre']] }}</td>
+                                            <td><a href="/admin/nanpa_place/admin_detail?id={{ $value['id'] }}">詳細</a></td>
 
                                         </tr>
                                     @endforeach
