@@ -38,9 +38,15 @@
                                 <div class="form-group">
                                     <label>ジャンル</label>
                                     <select name="genre" class="form-control">
-                                        @foreach (config('const.genre') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['genre'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
 
@@ -53,7 +59,13 @@
                                     <label>公開</label>
                                     <select name="open_flag" class="form-control">
                                         @foreach (config('const.open_flag') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
+                                            <?php 
+                                                $selected = '';
+                                                if ($detail['open_flag'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -62,7 +74,13 @@
                                     <label>割合</label>
                                     <select name="ratio" class="form-control">
                                         @foreach (config('const.ratio') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['ratio'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,43 +90,73 @@
                                 <div class="form-group">
                                     <label>アイコン</label>
                                     <select name="icon" class="form-control">
-                                        @foreach (config('const.icon') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['icon'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>スタート時間</label>
                                     <select name="start_time" class="form-control">
-                                        @foreach (config('const.time') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['start_time'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>エンド時間</label>
                                     <select name="end_time" class="form-control">
-                                        @foreach (config('const.time') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['end_time'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>スタート時間</label>
                                     <select name="start_age_group" class="form-control">
-                                        @foreach (config('const.age_group') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['start_age_group'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>エンド時間</label>
                                     <select name="end_age_group" class="form-control">
-                                        @foreach (config('const.age_group') as $key => $value)
-                                            <option value="{{ $key }}">{{ $value }}</option>
-                                        @endforeach
+                                    @foreach (config('const.ratio') as $key => $value)
+                                        <?php 
+                                                $selected = '';
+                                                if ($detail['end_age_group'] == $key) {
+                                                    $selected = 'selected';
+                                                }
+                                            ?>
+                                            <option value="{{ $key }}" <?php echo $selected ?>>{{ $value }}</option>
+                                    @endforeach
                                     </select>
                                 </div>
 
