@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\NanpaPlace;
-use Illuminate\Support\Arr;
 use Log;
 use DB;
 
@@ -132,24 +131,8 @@ class NanpaPlaceController extends Controller
 
     public function adminUpdate(Request $request)
     {
-        $inputs = Arr::only($request, [
-            'id',
-            'place_name',
-            'genre',
-            'score',
-            'longitude_latitude',
-            'longitude',
-            'latitude',
-            'open_flag',
-            'ratio',
-            'icon',
-            'start_time',
-            'end_time',
-            'start_age_group',
-            'end_age_group',
-            'memo',
-        ]);
-
+        $inputs = $request->all();
+        unset($inputs['_token']);
         $longitude_latitude = explode(",", $inputs['longitude_latitude']);
         $inputs['longitude'] = $longitude_latitude[0];
         $inputs['latitude'] = $longitude_latitude[1];

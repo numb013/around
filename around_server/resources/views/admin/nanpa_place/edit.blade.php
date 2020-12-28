@@ -60,7 +60,7 @@
 
                                 <div class="form-group">
                                     <label>割合</label>
-                                    <select name="authority" class="form-control">
+                                    <select name="ratio" class="form-control">
                                         @foreach (config('const.ratio') as $key => $value)
                                             <option value="{{ $key }}">{{ $value }}</option>
                                         @endforeach
