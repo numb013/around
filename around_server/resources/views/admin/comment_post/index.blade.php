@@ -11,7 +11,7 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        <div class="col-lg-8">
+        <!-- <div class="col-lg-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     検索
@@ -29,14 +29,10 @@
                                 <button type="submit" class="btn btn-default">送信</button>
                             </div>
                         </form>
-                        <!-- /.col-lg-6 (nested) -->
                     </div>
-                    <!-- /.row (nested) -->
                 </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
-        </div>
+        </div> -->
         <!-- /.col-lg-12 -->
 
         <div class="col-lg-12">
