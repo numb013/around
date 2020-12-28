@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label>ジャンル</label>
                                     <select name="genre" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.genre') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['genre'] == $key) {
@@ -90,7 +90,7 @@
                                 <div class="form-group">
                                     <label>アイコン</label>
                                     <select name="icon" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.icon') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['icon'] == $key) {
@@ -105,7 +105,7 @@
                                 <div class="form-group">
                                     <label>スタート時間</label>
                                     <select name="start_time" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.time') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['start_time'] == $key) {
@@ -119,7 +119,7 @@
                                 <div class="form-group">
                                     <label>エンド時間</label>
                                     <select name="end_time" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.time') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['end_time'] == $key) {
@@ -134,7 +134,7 @@
                                 <div class="form-group">
                                     <label>スタート時間</label>
                                     <select name="start_age_group" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.age_group') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['start_age_group'] == $key) {
@@ -148,7 +148,7 @@
                                 <div class="form-group">
                                     <label>エンド時間</label>
                                     <select name="end_age_group" class="form-control">
-                                    @foreach (config('const.ratio') as $key => $value)
+                                    @foreach (config('const.age_group') as $key => $value)
                                         <?php 
                                                 $selected = '';
                                                 if ($detail['end_age_group'] == $key) {
