@@ -60,11 +60,11 @@
                                     <tbody>
                                         @foreach ($list as $key => $value)
                                             <tr>
-                                                <td>{{ $value['place_name'] }}</td>
+                                                <td><a href="/admin/nanpa_place/admin_detail?id={{ $value['id'] }}">{{ $value['place_name'] }}</a></td>
                                                 <td>{{ config('const.genre')[$value['genre']] }}</td>
                                                 <td>{{ $value['longitude_latitude'] }}</td>
                                                 <td>{{ config('const.icon')[$value['icon']] }}</td>
-                                                <td><a href="/admin/nanpa_place/admin_detail?id={{ $value['id'] }}">詳細</a></td>
+                                                <td><a href="/admin/nanpa_place/admin_edit?id={{ $value['id'] }}">編集</a></td>
                                                 <td><a href="/admin/nanpa_place/admin_delete?id={{ $value['id'] }}">削除</a></td>
                                             </tr>
                                         @endforeach
