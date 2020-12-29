@@ -19,7 +19,7 @@
                 @show
                 <div style="padding-bottom: 70px">
                     <div id="sample"></div>
-                    <a href="{{ url('/nanpa_place') }}">投稿</a>
+                    <a href="{{ url('/nanpa_place') }}">おすすめのナンパスポットを共有</a>
                 </div>
             </div>
         </div>
