@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords" content="ナンパマップ,ナンパ,ナンパスポット,ナンパ場所">
 <meta name=”description“ content="全国のナンパスポットをgoogle mapで確認できる、遊びに行った街でナンパをしたい時、すぐ何処が熱いナンパスポットが分かる" />
-<meta name="google-site-verification" content="fCme6zYImG2_KWpMPjmvhVAhM4siEg4g0c_Qt4ToJAY" />
+<meta name="google-site-verification" content="ves5cE1aCFKsBx0HtdE6DxBj3gNVoWHfBD7TRe6DEP0" />
 <title>ナンパマップ</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
